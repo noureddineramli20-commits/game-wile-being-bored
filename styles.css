@@ -1,168 +1,206 @@
-const startBtn = document.getElementById("startBtn");
-const restartBtn = document.getElementById("restartBtn");
-const resetBtn = document.getElementById("resetBtn");
+body {
 
-const target = document.getElementById("target");
+font-family: Arial;
 
-const scoreText = document.getElementById("score");
-const levelText = document.getElementById("level");
-const timerText = document.getElementById("timer");
-const highscoreText = document.getElementById("highscore");
+text-align:center;
 
-const resultText = document.getElementById("result");
-const instruction = document.getElementById("instruction");
+color:white;
 
-let score = 0;
-let level = 1;
-let time = 60;
-let timer;
+margin:0;
 
-let highscore = localStorage.getItem("highscore") || 0;
-highscoreText.textContent = highscore;
+overflow:hidden;
 
-startBtn.onclick = startGame;
-restartBtn.onclick = startGame;
+height:100vh;
 
-function startGame() {
+background:linear-gradient(
+#071a33,
+#2563a6
+);
 
-score = 0;
-level = 1;
-time = 60;
-
-scoreText.textContent = 0;
-levelText.textContent = 1;
-timerText.textContent = 60;
-
-document.body.style.background =
-"linear-gradient(#061a33,#1e5a99)";
-
-resultText.innerHTML = "";
-instruction.style.display = "block";
-
-startBtn.style.display = "none";
-restartBtn.style.display = "none";
-
-document.getElementById("game").style.display = "block";
-target.style.display = "block";
-
-moveTarget();
-
-clearInterval(timer);
-
-timer = setInterval(() => {
-
-time--;
-timerText.textContent = time;
-
-if (time <= 0) endGame();
-
-}, 1000);
+transition:0.5s;
 
 }
 
-target.onclick = hit;
-target.ontouchstart = hit;
 
-function hit() {
 
-score++;
-level = Math.floor(score / 5) + 1;
+button {
 
-if (level > 100) {
-finishGame();
-return;
-}
+padding:12px 20px;
 
-scoreText.textContent = score;
-levelText.textContent = level;
+margin:5px;
 
-updateBackground();
+border:none;
 
-if (score > highscore) {
-highscore = score;
-highscoreText.textContent = highscore;
-localStorage.setItem("highscore", highscore);
-}
+border-radius:10px;
 
-moveTarget();
+background:#00aaff;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+z-index:20;
+
+position:relative;
 
 }
 
-function updateBackground() {
 
-let hue = level * 3;
 
-document.body.style.background =
-`linear-gradient(hsl(${hue},70%,20%), hsl(${hue},70%,50%))`;
+#game {
 
-}
-
-function moveTarget() {
-
-let size = Math.max(25, 70 - level * 0.5);
-
-let x = Math.random() * (window.innerWidth - size);
-let y = Math.random() * (window.innerHeight - size);
-
-target.style.width = size + "px";
-target.style.height = size + "px";
-
-target.style.left = x + "px";
-target.style.top = y + "px";
+display:none;
 
 }
 
-function endGame() {
 
-clearInterval(timer);
 
-target.style.display = "none";
-instruction.style.display = "none";
+#target {
 
-resultText.innerHTML = `
-<h2>⏰ Tijd voorbij!</h2>
-Score: ${score}<br>
-Level: ${level}<br>
-Highscore: ${highscore}
-`;
 
-restartBtn.style.display = "block";
+width:70px;
 
-}
+height:70px;
 
-function finishGame() {
+background:red;
 
-clearInterval(timer);
+border-radius:50%;
 
-localStorage.setItem("highscore", 0);
+position:fixed;
 
-highscore = 0;
+box-shadow:0 0 25px red;
 
-score = 0;
-level = 1;
+z-index:50;
 
-highscoreText.textContent = 0;
-
-resultText.innerHTML = `
-<h2>🏆 Je hebt alle 100 levels gehaald!</h2>
-<p>Nieuwe ronde start...</p>
-`;
-
-setTimeout(() => startGame(), 3000);
+touch-action:none;
 
 }
 
-resetBtn.onclick = function () {
 
-localStorage.setItem("highscore", 0);
 
-highscore = 0;
-highscoreText.textContent = 0;
+.enemy {
 
-score = 0;
-level = 1;
 
-scoreText.textContent = 0;
-levelText.textContent = 1;
+width:50px;
 
-};
+height:50px;
+
+background:black;
+
+border-radius:50%;
+
+position:fixed;
+
+z-index:40;
+
+}
+
+
+
+#result {
+
+
+position:fixed;
+
+top:55%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+color:gold;
+
+font-size:28px;
+
+z-index:100;
+
+}
+
+
+
+#restartBtn {
+
+
+display:none;
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+
+}
+
+
+
+.moon {
+
+
+position:fixed;
+
+top:40px;
+
+right:60px;
+
+width:90px;
+
+height:90px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:0 0 40px white;
+
+
+}
+
+
+
+.mountains {
+
+
+position:fixed;
+
+bottom:0;
+
+width:100%;
+
+height:220px;
+
+background:#334155;
+
+
+clip-path:polygon(
+0 100%,
+20% 40%,
+40% 100%,
+60% 35%,
+80% 100%,
+100% 50%,
+100% 100%
+);
+
+
+}
+
+
+
+.trees {
+
+
+position:fixed;
+
+bottom:0;
+
+width:100%;
+
+height:100px;
+
+background:#111827;
+
+
+}
