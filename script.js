@@ -214,10 +214,25 @@ instruction.style.display="none";
 
 
 
-resultText.innerHTML=
+let newRecord = "";
 
+if (score > Number(localStorage.getItem("oldHighscore") || 0)) {
+
+  newRecord = `
+  <h2>🎉 Gefeliciteerd!</h2>
+  <p>Je hebt een nieuw record gehaald!</p>
+  `;
+
+}
+
+
+
+resultText.innerHTML =
 
 `
+
+${newRecord}
+
 <h2>⏰ Tijd voorbij!</h2>
 
 Score: ${score}
@@ -227,6 +242,8 @@ Score: ${score}
 Highscore: ${highscore}
 
 `;
+
+
 
 
 
