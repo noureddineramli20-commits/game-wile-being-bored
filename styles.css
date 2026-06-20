@@ -130,3 +130,19 @@ body {
   height: 120px;
   z-index: -1;
 }
+#result {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+}
+
+#restartBtn {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
