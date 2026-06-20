@@ -1,3 +1,4 @@
+const instruction = document.getElementById("instruction");
 function createSnowflake() {
   const snowflake = document.createElement("div");
 
@@ -93,6 +94,22 @@ function moveTarget() {
 
 function endGame() {
   gameRunning = false;
+
+  clearInterval(timerInterval);
+
+  target.style.display = "none";
+
+  // witte uitleg weg
+  instruction.style.display = "none";
+
+  // alleen gele score laten zien
+  resultText.innerHTML = `
+    <h2>⏰ Tijd voorbij!</h2>
+    <p>Jouw score: <strong>${score}</strong></p>
+  `;
+
+  restartBtn.style.display = "block";
+}
 
   clearInterval(timerInterval);
 
