@@ -26,6 +26,10 @@ let level=1;
 
 let time=60;
 
+let totalTime=60;
+
+newRecord = false;
+
 let timer;
 
 
@@ -161,11 +165,10 @@ restartBtn.onclick=startGame;
 
 function startGame(){
 
+newRecord = false;
 
 score=0;
-
 level=1;
-
 time=60;
 
 
@@ -187,9 +190,26 @@ startBtn.style.display="none";
 restartBtn.style.display="none";
 
 
-resultText.innerHTML="";
 
 
+
+resultText.innerHTML = `
+
+${recordText}
+
+<h2>⏰ Game Over</h2>
+
+Score: ${score}
+
+<br>
+
+Level: ${level}
+
+<br>
+
+Highscore: ${highscore}
+
+`;
 moveTarget();
 
 moveEnemies();
@@ -215,17 +235,30 @@ timerText.textContent=time;
 
 if(time<=0){
 
-endGame();
+
+level++;
+
+
+levelText.textContent=level;
+
+
+
+time=60;
+
+
+timerText.textContent=time;
+
+
+
+changeBackground();
+
+
 
 }
+
 
 
 },1000);
-
-
-
-}
-
 
 
 
@@ -243,7 +276,6 @@ function hit(){
 score++;
 
 
-level=Math.floor(score/5)+1;
 
 
 
@@ -257,19 +289,25 @@ changeBackground();
 
 
 
-if(score>highscore){
+if(score > highscore){
 
 
-highscore=score;
+highscore = score;
 
 
-highscoreText.textContent=highscore;
+highscoreText.textContent = highscore;
 
 
 localStorage.setItem(
 "highscore",
 highscore
 );
+
+
+newRecord = true;
+
+
+}
 
 
 }
@@ -371,9 +409,35 @@ enemy.onclick=dead;
 function dead(){
 
 
-alert("💀 Je bent geraakt!");
+clearInterval(timer);
 
-location.reload();
+
+target.style.display="none";
+
+
+instruction.style.display="none";
+
+
+
+resultText.innerHTML = `
+
+<h2>💀 Je bent geraakt!</h2>
+
+Score: ${score}
+
+<br>
+
+Level: ${level}
+
+<br>
+
+Highscore: ${highscore}
+
+`;
+
+
+
+restartBtn.style.display="block";
 
 
 }
@@ -420,9 +484,29 @@ document.getElementById("game").style.display="none";
 
 
 // alleen uitslag laten zien
-resultText.innerHTML=`
+let recordText = "";
 
-<h2>⏰ Tijd voorbij</h2>
+if(newRecord){
+
+recordText = `
+
+<h2>🎉 Gefeliciteerd!</h2>
+
+<p>📣 Nieuw Highscore!</p>
+
+`;
+
+playPartySound();
+
+}
+
+
+
+resultText.innerHTML = `
+
+${recordText}
+
+<h2>⏰ Game Over</h2>
 
 Score: ${score}
 
@@ -478,11 +562,33 @@ localStorage.setItem(
 );
 
 
-location.reload();
+highscore=0;
+
+
+score=0;
+
+
+level=1;
+
+
+time=60;
+
+
+
+highscoreText.textContent=0;
+
+scoreText.textContent=0;
+
+levelText.textContent=1;
+
+timerText.textContent=60;
+
+
+
+resultText.innerHTML="";
 
 
 };
-
 
 
 
@@ -545,3 +651,52 @@ clearInterval(fall);
 
 
 },200);
+function playPartySound(){
+
+
+let audio = new AudioContext();
+
+
+let osc = audio.createOscillator();
+
+
+let gain = audio.createGain();
+
+
+
+osc.type="sawtooth";
+
+
+osc.frequency.setValueAtTime(
+400,
+audio.currentTime
+);
+
+
+osc.frequency.linearRampToValueAtTime(
+900,
+audio.currentTime + 0.4
+);
+
+
+
+gain.gain.value=0.15;
+
+
+
+osc.connect(gain);
+
+gain.connect(audio.destination);
+
+
+
+osc.start();
+
+
+osc.stop(
+audio.currentTime + 0.5
+);
+
+
+
+}
