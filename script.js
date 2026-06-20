@@ -1,3 +1,4 @@
+const enemies = document.querySelectorAll(".enemy");
 const startBtn=document.getElementById("startBtn");
 const restartBtn=document.getElementById("restartBtn");
 const resetBtn=document.getElementById("resetBtn");
@@ -6,7 +7,6 @@ const musicBtn=document.getElementById("musicBtn");
 
 const target=document.getElementById("target");
 
-const enemies=document.querySelectorAll(".enemy");
 
 
 const scoreText=document.getElementById("score");
@@ -165,6 +165,7 @@ restartBtn.onclick=startGame;
 
 function startGame(){
 
+  
 newRecord = false;
 
 score=0;
@@ -374,31 +375,18 @@ Math.random()*
 
 
 
-function moveEnemies(){
+function moveEnemies() {
 
+enemies.forEach(enemy => {
 
-enemies.forEach(enemy=>{
+setInterval(() => {
 
+enemy.style.left = Math.random() * (window.innerWidth - 50) + "px";
+enemy.style.top = Math.random() * (window.innerHeight - 50) + "px";
 
-setInterval(()=>{
+}, 1200);
 
-
-enemy.style.left=
-Math.random()*window.innerWidth+"px";
-
-
-enemy.style.top=
-Math.random()*window.innerHeight+"px";
-
-
-
-},1200);
-
-
-
-enemy.onclick=dead;
-
-
+enemy.onclick = die;
 
 });
 
@@ -406,39 +394,24 @@ enemy.onclick=dead;
 
 
 
-function dead(){
-
+function die() {
 
 clearInterval(timer);
 
+target.style.display = "none";
 
-target.style.display="none";
-
-
-instruction.style.display="none";
-
-
+instruction.style.display = "none";
 
 resultText.innerHTML = `
-
 <h2>💀 Je bent geraakt!</h2>
-
 Score: ${score}
-
 <br>
-
 Level: ${level}
-
 <br>
-
 Highscore: ${highscore}
-
 `;
 
-
-
-restartBtn.style.display="block";
-
+restartBtn.style.display = "block";
 
 }
 
