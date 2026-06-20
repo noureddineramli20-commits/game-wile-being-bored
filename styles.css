@@ -1,217 +1,168 @@
-body {
+const startBtn = document.getElementById("startBtn");
+const restartBtn = document.getElementById("restartBtn");
+const resetBtn = document.getElementById("resetBtn");
 
-font-family: Arial, sans-serif;
+const target = document.getElementById("target");
 
-text-align:center;
+const scoreText = document.getElementById("score");
+const levelText = document.getElementById("level");
+const timerText = document.getElementById("timer");
+const highscoreText = document.getElementById("highscore");
 
-color:white;
+const resultText = document.getElementById("result");
+const instruction = document.getElementById("instruction");
 
-margin:0;
+let score = 0;
+let level = 1;
+let time = 60;
+let timer;
 
-overflow:hidden;
+let highscore = localStorage.getItem("highscore") || 0;
+highscoreText.textContent = highscore;
 
-height:100vh;
+startBtn.onclick = startGame;
+restartBtn.onclick = startGame;
 
-background:linear-gradient(#071a33,#2563a6);
+function startGame() {
 
-}
+score = 0;
+level = 1;
+time = 60;
 
+scoreText.textContent = 0;
+levelText.textContent = 1;
+timerText.textContent = 60;
 
+document.body.style.background =
+"linear-gradient(#061a33,#1e5a99)";
 
-h1 {
+resultText.innerHTML = "";
+instruction.style.display = "block";
 
-position:relative;
+startBtn.style.display = "none";
+restartBtn.style.display = "none";
 
-z-index:10;
+document.getElementById("game").style.display = "block";
+target.style.display = "block";
 
-}
+moveTarget();
 
+clearInterval(timer);
 
+timer = setInterval(() => {
 
-button {
+time--;
+timerText.textContent = time;
 
-padding:15px 30px;
+if (time <= 0) endGame();
 
-font-size:20px;
-
-border:none;
-
-border-radius:10px;
-
-background:#0099ff;
-
-color:white;
-
-cursor:pointer;
-
-position:relative;
-
-z-index:20;
-
-}
-
-
-
-#game {
-
-display:none;
-
-position:relative;
-
-z-index:70;
+}, 1000);
 
 }
 
+target.onclick = hit;
+target.ontouchstart = hit;
 
+function hit() {
 
-#target {
+score++;
+level = Math.floor(score / 5) + 1;
 
-width:80px;
+if (level > 100) {
+finishGame();
+return;
+}
 
-height:80px;
+scoreText.textContent = score;
+levelText.textContent = level;
 
-background:red;
+updateBackground();
 
-border-radius:50%;
+if (score > highscore) {
+highscore = score;
+highscoreText.textContent = highscore;
+localStorage.setItem("highscore", highscore);
+}
 
-position:fixed;
-
-cursor:pointer;
-
-box-shadow:0 0 30px red;
-
-z-index:70;
+moveTarget();
 
 }
 
+function updateBackground() {
 
+let hue = level * 3;
 
-#result {
-
-
-position:fixed;
-
-top:65%;
-
-left:50%;
-
-transform:translate(-50%,-50%);
-
-color:gold;
-
-font-size:30px;
-
-z-index:100;
-
+document.body.style.background =
+`linear-gradient(hsl(${hue},70%,20%), hsl(${hue},70%,50%))`;
 
 }
 
+function moveTarget() {
 
+let size = Math.max(25, 70 - level * 0.5);
 
-#restartBtn {
+let x = Math.random() * (window.innerWidth - size);
+let y = Math.random() * (window.innerHeight - size);
 
+target.style.width = size + "px";
+target.style.height = size + "px";
 
-display:none;
-
-position:fixed;
-
-right:40px;
-
-bottom:40px;
-
-z-index:100;
-
+target.style.left = x + "px";
+target.style.top = y + "px";
 
 }
 
+function endGame() {
 
+clearInterval(timer);
 
+target.style.display = "none";
+instruction.style.display = "none";
 
-.moon {
+resultText.innerHTML = `
+<h2>⏰ Tijd voorbij!</h2>
+Score: ${score}<br>
+Level: ${level}<br>
+Highscore: ${highscore}
+`;
 
-
-position:fixed;
-
-top:50px;
-
-right:80px;
-
-width:100px;
-
-height:100px;
-
-background:white;
-
-border-radius:50%;
-
-box-shadow:0 0 40px white;
-
+restartBtn.style.display = "block";
 
 }
 
+function finishGame() {
 
+clearInterval(timer);
 
+localStorage.setItem("highscore", 0);
 
-.mountains {
+highscore = 0;
 
-position: fixed;
+score = 0;
+level = 1;
 
-bottom: 0;
+highscoreText.textContent = 0;
 
-left: 0;
+resultText.innerHTML = `
+<h2>🏆 Je hebt alle 100 levels gehaald!</h2>
+<p>Nieuwe ronde start...</p>
+`;
 
-width: 100%;
-
-height: 250px;
-
-background: linear-gradient(
-135deg,
-transparent 50%,
-#334155 50%
-),
-linear-gradient(
-225deg,
-transparent 50%,
-#1e293b 50%
-);
-
-background-size: 300px 250px;
-
-z-index: 1;
+setTimeout(() => startGame(), 3000);
 
 }
 
+resetBtn.onclick = function () {
 
+localStorage.setItem("highscore", 0);
 
+highscore = 0;
+highscoreText.textContent = 0;
 
-.trees {
+score = 0;
+level = 1;
 
-position: fixed;
+scoreText.textContent = 0;
+levelText.textContent = 1;
 
-bottom: 0;
-
-left: 0;
-
-width: 100%;
-
-height: 140px;
-
-background:
-
-linear-gradient(
-90deg,
-#0f172a 10%,
-transparent 10%
-),
-
-linear-gradient(
-90deg,
-transparent 50%,
-#020617 50%
-);
-
-background-size: 80px 140px;
-
-z-index: 2;
-
-}
+};
