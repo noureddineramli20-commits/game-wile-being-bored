@@ -1,3 +1,8 @@
+const highscoreText = document.getElementById("highscore");
+
+let highscore = localStorage.getItem("highscore") || 0;
+
+highscoreText.textContent = highscore;
 const instruction = document.getElementById("instruction");
 function createSnowflake() {
   const snowflake = document.createElement("div");
@@ -76,7 +81,14 @@ target.addEventListener("click", () => {
   if (!gameRunning) return;
 
   score++;
-  scoreText.textContent = score;
+scoreText.textContent = score;
+
+if (score > highscore) {
+  highscore = score;
+  highscoreText.textContent = highscore;
+
+  localStorage.setItem("highscore", highscore);
+}
 
   moveTarget();
 });
@@ -117,7 +129,10 @@ function endGame() {
 
   resultText.innerHTML = `
     <h2>⏰ Tijd voorbij!</h2>
-    <p>Jouw score: <strong>${score}</strong></p>
+    <p>
+Jouw score: <strong>${score}</strong><br>
+Highscore: <strong>${highscore}</strong>
+</p>
 
   `;
 }
