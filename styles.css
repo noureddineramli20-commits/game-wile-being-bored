@@ -92,3 +92,13 @@ body {
     transparent 60px
   );
 }
+#target {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: fixed;
+  background: radial-gradient(circle, #ff4d4d, #b30000);
+  box-shadow: 0 0 25px red;
+  cursor: pointer;
+  z-index: 1000;
+}
