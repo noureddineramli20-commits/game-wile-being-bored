@@ -405,13 +405,21 @@ hsl(${h},70%,50%)
 
 function endGame(){
 
-
 clearInterval(timer);
 
 
 target.style.display="none";
 
 
+// witte uitleg weg
+instruction.style.display="none";
+
+
+// game scherm weg
+document.getElementById("game").style.display="none";
+
+
+// alleen uitslag laten zien
 resultText.innerHTML=`
 
 <h2>⏰ Tijd voorbij</h2>
