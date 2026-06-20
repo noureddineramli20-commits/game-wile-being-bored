@@ -2,93 +2,48 @@
 <html lang="nl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Klik Spel</title>
-
+<title>Klik Game</title>
 <link rel="stylesheet" href="styles.css">
-
 </head>
 
-
 <body>
-
 
 <div class="moon"></div>
 <div class="mountains"></div>
 <div class="trees"></div>
 
+<h1>Klik Game</h1>
 
-<h1>Klik-Spel</h1>
-
-
-<button id="startBtn">
-Start Spel
-</button>
-
-
+<button id="startBtn">Start Spel</button>
+<button id="resetBtn">Reset Highscore</button>
 
 <div id="game">
 
-
 <h2>
 Score: <span id="score">0</span>
-
-|
-
+&nbsp; | &nbsp;
+Level: <span id="level">1</span>
+&nbsp; | &nbsp;
 Highscore: <span id="highscore">0</span>
-
 </h2>
-
-
 
 <h2>
-
-Tijd:
-<span id="timer">60</span>
-
-seconden
-
+Tijd: <span id="timer">60</span> sec
 </h2>
 
-
-
-<p id="instruction">
-
-Klik op de rode bal!
-
-</p>
-
-
+<p id="instruction">Klik zo snel mogelijk!</p>
 
 <div id="target"></div>
 
-
-
 </div>
-
-
-
-
 
 <div id="result"></div>
 
-
-
-<button id="restartBtn">
-
-Opnieuw Spelen
-
-</button>
-
-
-
+<button id="restartBtn">Opnieuw Spelen</button>
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
