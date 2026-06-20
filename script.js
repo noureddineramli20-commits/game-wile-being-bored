@@ -1,3 +1,4 @@
+console.log("script werkt");
 const startBtn = document.getElementById("startBtn");
 const highscoreText = document.getElementById("highscore");
 
@@ -38,7 +39,6 @@ const restartBtn = document.getElementById("restartBtn");
 restartBtn.addEventListener("click", () => {
   location.reload();
 });
-const startBtn = document.getElementById("startBtn");
 const game = document.getElementById("game");
 const target = document.getElementById("target");
 const scoreText = document.getElementById("score");
