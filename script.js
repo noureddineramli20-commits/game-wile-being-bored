@@ -210,9 +210,7 @@ target.style.top=y+"px";
 function endGame(){
 
 
-
 clearInterval(timer);
-
 
 
 target.style.display="none";
@@ -224,22 +222,46 @@ instruction.style.display="none";
 
 let newRecord = "";
 
-if (score > Number(localStorage.getItem("oldHighscore") || 0)) {
 
-  newRecord = `
-  <h2>🎉 Gefeliciteerd!</h2>
-  <p>Je hebt een nieuw record gehaald!</p>
-  `;
+if(score >= highscore && score > 0){
+
+newRecord = `
+
+<h2>🎉 Gefeliciteerd!</h2>
+
+<p>Je hebt een nieuw record!</p>
+
+`;
 
 }
 
 
 
+if(score > highscore){
+
+highscore = score;
+
+
+highscoreText.textContent = highscore;
+
+
+localStorage.setItem(
+"highscore",
+highscore
+);
+
+}
+
+
+
+
 resultText.innerHTML =
+
 
 `
 
 ${newRecord}
+
 
 <h2>⏰ Tijd voorbij!</h2>
 
@@ -249,17 +271,20 @@ Score: ${score}
 
 Highscore: ${highscore}
 
+
 `;
-
-
 
 
 
 restartBtn.style.display="block";
 
 
-
 }
+
+
+
+
+
 
 
 
