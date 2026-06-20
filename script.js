@@ -1,160 +1,268 @@
-console.log("script werkt");
 const startBtn = document.getElementById("startBtn");
-const highscoreText = document.getElementById("highscore");
-
-let highscore = localStorage.getItem("highscore") || 0;
-
-highscoreText.textContent = highscore;
-const instruction = document.getElementById("instruction");
-function createSnowflake() {
-  const snowflake = document.createElement("div");
-
-  snowflake.innerHTML = "❄";
-  snowflake.style.position = "fixed";
-  snowflake.style.left = Math.random() * window.innerWidth + "px";
-  snowflake.style.top = "-20px";
-  snowflake.style.color = "white";
-  snowflake.style.fontSize = Math.random() * 15 + 10 + "px";
-  snowflake.style.opacity = Math.random();
-
-  document.body.appendChild(snowflake);
-
-  let posY = -20;
-  const speed = Math.random() * 3 + 1;
-
-  const fall = setInterval(() => {
-    posY += speed;
-    snowflake.style.top = posY + "px";
-
-    if (posY > window.innerHeight) {
-      clearInterval(fall);
-      snowflake.remove();
-    }
-  }, 20);
-}
-
-setInterval(createSnowflake, 200);
 const restartBtn = document.getElementById("restartBtn");
 
-restartBtn.addEventListener("click", () => {
-  location.reload();
-});
-const game = document.getElementById("game");
 const target = document.getElementById("target");
+
 const scoreText = document.getElementById("score");
 const timerText = document.getElementById("timer");
+
+const highscoreText = document.getElementById("highscore");
+
 const resultText = document.getElementById("result");
+
+const instruction = document.getElementById("instruction");
+
 
 let score = 0;
 let timeLeft = 60;
+
+let highscore =
+localStorage.getItem("highscore") || 0;
+
+let timerInterval;
+
 let gameRunning = false;
-let timerInterval = null;
+
+
+
+highscoreText.textContent = highscore;
+
+
 
 startBtn.addEventListener("click", startGame);
 
-function startGame() {
+restartBtn.addEventListener("click", startGame);
 
-  score = 0;
-  timeLeft = 60;
 
-  scoreText.textContent = score;
-  timerText.textContent = timeLeft;
 
-  game.style.display = "block";
-  startBtn.style.display = "none";
+function startGame(){
 
-  target.style.display = "block";
-  instruction.style.display = "block";
 
-  resultText.innerHTML = "";
+clearInterval(timerInterval);
 
-  gameRunning = true;
 
-  moveTarget();
+score = 0;
 
-  timerInterval = setInterval(() => {
-    timeLeft--;
+timeLeft = 60;
 
-    timerText.textContent = timeLeft;
 
-    if (timeLeft <= 0) {
-      endGame();
-    }
-
-  }, 1000);
-}
-
-target.addEventListener("click", () => {
-  if (!gameRunning) return;
-
-  score++;
 scoreText.textContent = score;
 
-if (score > highscore) {
-  highscore = score;
-  highscoreText.textContent = highscore;
+timerText.textContent = timeLeft;
 
-  localStorage.setItem("highscore", highscore);
+
+resultText.innerHTML="";
+
+
+instruction.style.display="block";
+
+
+target.style.display="block";
+
+
+startBtn.style.display="none";
+
+restartBtn.style.display="none";
+
+
+gameRunning=true;
+
+
+moveTarget();
+
+
+
+timerInterval=setInterval(()=>{
+
+
+timeLeft--;
+
+
+timerText.textContent=timeLeft;
+
+
+
+if(timeLeft <= 0){
+
+endGame();
+
 }
 
-  moveTarget();
+
+},1000);
+
+
+
+}
+
+
+
+target.addEventListener("click",()=>{
+
+
+if(!gameRunning)return;
+
+
+
+score++;
+
+
+scoreText.textContent=score;
+
+
+
+if(score > highscore){
+
+
+highscore=score;
+
+
+highscoreText.textContent=highscore;
+
+
+localStorage.setItem(
+"highscore",
+highscore
+);
+
+
+}
+
+
+
+moveTarget();
+
+
 });
 
-function moveTarget() {
-  const maxX = window.innerWidth - 100;
-  const maxY = window.innerHeight - 100;
 
-  const x = Math.floor(Math.random() * maxX);
-  const y = Math.floor(Math.random() * maxY);
 
-  target.style.left = `${x}px`;
-  target.style.top = `${y}px`;
+
+
+function endGame(){
+
+
+gameRunning=false;
+
+
+clearInterval(timerInterval);
+
+
+
+target.style.display="none";
+
+
+instruction.style.display="none";
+
+
+
+resultText.innerHTML=
+
+`
+<h2>⏰ Tijd voorbij!</h2>
+
+Score: ${score}
+
+<br>
+
+Highscore: ${highscore}
+
+`;
+
+
+
+restartBtn.style.display="block";
+
+
 }
 
-function endGame() {
-  gameRunning = false;
 
-  clearInterval(timerInterval);
 
-  target.style.display = "none";
 
-  // witte uitleg weg
-  instruction.style.display = "none";
 
-  // alleen gele score laten zien
-  resultText.innerHTML = `
-    <h2>⏰ Tijd voorbij!</h2>
-    <p>Jouw score: <strong>${score}</strong></p>
-  `;
 
-  restartBtn.style.display = "block";
+function moveTarget(){
+
+
+let x=Math.random()*
+(window.innerWidth-100);
+
+
+let y=Math.random()*
+(window.innerHeight-100);
+
+
+
+target.style.left=x+"px";
+
+target.style.top=y+"px";
+
+
 }
 
-  clearInterval(timerInterval);
 
-  target.style.display = "none";
 
-  resultText.innerHTML = `
-    <h2>⏰ Tijd voorbij!</h2>
-    <p>
-Jouw score: <strong>${score}</strong><br>
-Highscore: <strong>${highscore}</strong>
-</p>
 
-  `;
+
+
+function makeSnow(){
+
+
+let snow=document.createElement("div");
+
+
+snow.innerHTML="❄";
+
+
+snow.style.position="fixed";
+
+snow.style.top="-20px";
+
+snow.style.left=
+Math.random()*window.innerWidth+"px";
+
+
+snow.style.color="white";
+
+snow.style.fontSize=
+Math.random()*20+10+"px";
+
+
+document.body.appendChild(snow);
+
+
+
+let y=-20;
+
+
+
+let fall=setInterval(()=>{
+
+
+y+=2;
+
+
+snow.style.top=y+"px";
+
+
+
+if(y>window.innerHeight){
+
+
+clearInterval(fall);
+
+snow.remove();
+
+
 }
-restartBtn.style.display = "none";
-function endGame() {
-  gameRunning = false;
 
-  clearInterval(timerInterval);
 
-  target.style.display = "none";
+},20);
 
-  resultText.innerHTML = `
-      <h2>⏰ Tijd voorbij!</h2>
-      <p>Jouw score: <strong>${score}</strong></p>
-    `;
 
-  restartBtn.style.display = "block";
+}
+
+
+
+setInterval(makeSnow,200);
 }
