@@ -1,5 +1,12 @@
 console.log("JS werkt");
 const startBtn = document.getElementById("startBtn");
+
+startBtn.addEventListener("click", function(){
+
+alert("De knop werkt!");
+
+});
+const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
 
 const target = document.getElementById("target");
