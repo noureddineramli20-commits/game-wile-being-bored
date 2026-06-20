@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #222;
+  color: white;
+  margin-top: 50px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: #00aaff;
+  color: white;
+}
+
+#game {
+  margin-top: 30px;
+  display: none;
+}
+
+#target {
+  width: 80px;
+  height: 80px;
+  background: red;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#result {
+  font-size: 28px;
+  margin-top: 20px;
+  color: gold;
+}
+#target {
+  width: 80px;
+  height: 80px;
+  background: red;
+  position: fixed;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+#restartBtn {
+  display: none;
+  margin: 20px auto;
+  padding: 15px 30px;
+  font-size: 20px;
+}
