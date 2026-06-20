@@ -1,7 +1,9 @@
 const startBtn = document.getElementById("startBtn");
 
-startBtn.addEventListener("click", function(){
+startBtn.onclick = function() {
 
-alert("De knop werkt!");
+  startBtn.style.display = "none";
 
-});
+  alert("Spel gestart!");
+
+};
