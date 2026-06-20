@@ -1,3 +1,4 @@
+const startBtn = document.getElementById("startBtn");
 const highscoreText = document.getElementById("highscore");
 
 let highscore = localStorage.getItem("highscore") || 0;
@@ -52,16 +53,20 @@ let timerInterval = null;
 startBtn.addEventListener("click", startGame);
 
 function startGame() {
+
   score = 0;
   timeLeft = 60;
 
   scoreText.textContent = score;
   timerText.textContent = timeLeft;
-  resultText.textContent = "";
 
   game.style.display = "block";
-  target.style.display = "block";
   startBtn.style.display = "none";
+
+  target.style.display = "block";
+  instruction.style.display = "block";
+
+  resultText.innerHTML = "";
 
   gameRunning = true;
 
@@ -69,11 +74,13 @@ function startGame() {
 
   timerInterval = setInterval(() => {
     timeLeft--;
+
     timerText.textContent = timeLeft;
 
     if (timeLeft <= 0) {
       endGame();
     }
+
   }, 1000);
 }
 
