@@ -1,4 +1,3 @@
-const enemies = document.querySelectorAll(".enemy");
 const startBtn=document.getElementById("startBtn");
 const restartBtn=document.getElementById("restartBtn");
 const resetBtn=document.getElementById("resetBtn");
@@ -7,6 +6,7 @@ const musicBtn=document.getElementById("musicBtn");
 
 const target=document.getElementById("target");
 
+const enemies=document.querySelectorAll(".enemy");
 
 
 const scoreText=document.getElementById("score");
@@ -15,9 +15,8 @@ const timerText=document.getElementById("timer");
 const highscoreText=document.getElementById("highscore");
 
 
-const resultText=document.getElementById("result");
+const result=document.getElementById("result");
 const instruction=document.getElementById("instruction");
-
 
 
 let score=0;
@@ -26,133 +25,26 @@ let level=1;
 
 let time=60;
 
-let totalTime=60;
-
-newRecord = false;
-
 let timer;
 
 
 let highscore=
-localStorage.getItem("highscore") || 0;
+Number(localStorage.getItem("highscore")) || 0;
 
 
-highscoreText.textContent=highscore;
+let newRecord=false;
 
 
-
-// MUZIEK SYSTEEM
 
 let musicOn=true;
 
 let audio;
 
-let musicInterval;
+let musicLoop;
 
 
 
-function startMusic(){
-
-
-if(!musicOn)return;
-
-
-
-audio=new AudioContext();
-
-
-let notes=[261,329,392,523];
-
-
-let i=0;
-
-
-
-musicInterval=setInterval(()=>{
-
-
-let osc=audio.createOscillator();
-
-
-let gain=audio.createGain();
-
-
-
-osc.frequency.value=
-notes[i];
-
-
-osc.type="sine";
-
-
-gain.gain.value=0.05;
-
-
-
-osc.connect(gain);
-
-gain.connect(audio.destination);
-
-
-
-osc.start();
-
-
-
-osc.stop(
-audio.currentTime+1
-);
-
-
-
-i++;
-
-
-if(i>=notes.length){
-
-i=0;
-
-}
-
-
-},900);
-
-
-}
-
-
-
-
-
-musicBtn.onclick=function(){
-
-
-musicOn=!musicOn;
-
-
-if(musicOn){
-
-musicBtn.innerHTML="🔊 Muziek Aan";
-
-startMusic();
-
-
-}else{
-
-
-musicBtn.innerHTML="🔇 Muziek Uit";
-
-
-clearInterval(musicInterval);
-
-
-}
-
-
-};
-
-
-
+highscoreText.textContent=highscore;
 
 
 
@@ -165,12 +57,14 @@ restartBtn.onclick=startGame;
 
 function startGame(){
 
-  
-newRecord = false;
 
 score=0;
+
 level=1;
+
 time=60;
+
+newRecord=false;
 
 
 scoreText.textContent=0;
@@ -178,6 +72,12 @@ scoreText.textContent=0;
 levelText.textContent=1;
 
 timerText.textContent=60;
+
+
+
+result.innerHTML="";
+
+instruction.style.display="block";
 
 
 document.getElementById("game").style.display="block";
@@ -192,35 +92,13 @@ restartBtn.style.display="none";
 
 
 
-
-
-resultText.innerHTML = `
-
-${recordText}
-
-<h2>⏰ Game Over</h2>
-
-Score: ${score}
-
-<br>
-
-Level: ${level}
-
-<br>
-
-Highscore: ${highscore}
-
-`;
 moveTarget();
 
 moveEnemies();
 
 
+
 startMusic();
-
-
-
-clearInterval(timer);
 
 
 
@@ -240,15 +118,10 @@ if(time<=0){
 level++;
 
 
-levelText.textContent=level;
-
-
-
 time=60;
 
 
-timerText.textContent=time;
-
+levelText.textContent=level;
 
 
 changeBackground();
@@ -259,7 +132,30 @@ changeBackground();
 
 
 
+if(level>=100){
+
+
+level=1;
+
+score=0;
+
+highscore=0;
+
+
+localStorage.clear();
+
+
+}
+
+
 },1000);
+
+
+
+}
+
+
+
 
 
 
@@ -270,58 +166,32 @@ target.ontouchstart=hit;
 
 
 
-
 function hit(){
 
 
 score++;
 
 
-
-
-
 scoreText.textContent=score;
 
-levelText.textContent=level;
 
 
-
-changeBackground();
-
+if(score>highscore){
 
 
-if(score > highscore){
+highscore=score;
 
 
-highscore = score;
+newRecord=true;
 
 
-highscoreText.textContent = highscore;
+highscoreText.textContent=highscore;
 
 
 localStorage.setItem(
 "highscore",
 highscore
 );
-
-
-newRecord = true;
-
-
-}
-
-
-}
-
-
-
-if(level>=100){
-
-
-finish();
-
-
-return;
 
 
 }
@@ -331,7 +201,9 @@ return;
 moveTarget();
 
 
+
 }
+
 
 
 
@@ -341,12 +213,10 @@ moveTarget();
 function moveTarget(){
 
 
-
 let size=Math.max(
-25,
-70-level/2
+30,
+70-level
 );
-
 
 
 target.style.width=size+"px";
@@ -354,19 +224,12 @@ target.style.width=size+"px";
 target.style.height=size+"px";
 
 
-
 target.style.left=
-Math.random()*
-(window.innerWidth-size)
-+"px";
-
+Math.random()*(innerWidth-size)+"px";
 
 
 target.style.top=
-Math.random()*
-(window.innerHeight-size)
-+"px";
-
+Math.random()*(innerHeight-size)+"px";
 
 
 }
@@ -375,63 +238,37 @@ Math.random()*
 
 
 
-function moveEnemies() {
 
-enemies.forEach(enemy => {
+function moveEnemies(){
 
-setInterval(() => {
 
-enemy.style.left = Math.random() * (window.innerWidth - 50) + "px";
-enemy.style.top = Math.random() * (window.innerHeight - 50) + "px";
+enemies.forEach(enemy=>{
 
-}, 1200);
 
-enemy.onclick = die;
+setInterval(()=>{
+
+
+enemy.style.left=
+Math.random()*(innerWidth-50)+"px";
+
+
+enemy.style.top=
+Math.random()*(innerHeight-50)+"px";
+
+
+},1000);
+
+
+
+enemy.onclick=dead;
+
+
+enemy.ontouchstart=dead;
+
+
 
 });
 
-}
-
-
-
-function die() {
-
-clearInterval(timer);
-
-target.style.display = "none";
-
-instruction.style.display = "none";
-
-resultText.innerHTML = `
-<h2>💀 Je bent geraakt!</h2>
-Score: ${score}
-<br>
-Level: ${level}
-<br>
-Highscore: ${highscore}
-`;
-
-restartBtn.style.display = "block";
-
-}
-
-
-
-
-
-function changeBackground(){
-
-
-let h=level*3;
-
-
-
-document.body.style.background=
-`linear-gradient(
-hsl(${h},70%,20%),
-hsl(${h},70%,50%)
-)`;
-
 
 }
 
@@ -440,28 +277,38 @@ hsl(${h},70%,50%)
 
 
 
-function endGame(){
+
+function dead(){
+
+
+endScreen("💀 Je bent geraakt!");
+
+}
+
+
+
+
+
+
+function endScreen(title){
+
+
 
 clearInterval(timer);
 
 
 target.style.display="none";
 
-
-// witte uitleg weg
 instruction.style.display="none";
 
 
-// game scherm weg
-document.getElementById("game").style.display="none";
+let text="";
 
-
-// alleen uitslag laten zien
-let recordText = "";
 
 if(newRecord){
 
-recordText = `
+
+text=`
 
 <h2>🎉 Gefeliciteerd!</h2>
 
@@ -469,17 +316,17 @@ recordText = `
 
 `;
 
-playPartySound();
+partySound();
 
 }
 
 
 
-resultText.innerHTML = `
+result.innerHTML=`
 
-${recordText}
+${text}
 
-<h2>⏰ Game Over</h2>
+<h2>${title}</h2>
 
 Score: ${score}
 
@@ -490,6 +337,7 @@ Level: ${level}
 <br>
 
 Highscore: ${highscore}
+
 
 `;
 
@@ -506,17 +354,142 @@ restartBtn.style.display="block";
 
 
 
-function finish(){
+function changeBackground(){
 
 
-localStorage.setItem(
-"highscore",
-0
+let kleur=level*4;
+
+
+document.body.style.background=
+
+`linear-gradient(
+hsl(${kleur},70%,20%),
+hsl(${kleur},70%,50%)
+)`;
+
+
+
+}
+
+
+
+
+
+
+// muziek
+
+function startMusic(){
+
+
+if(!musicOn)return;
+
+
+audio=new AudioContext();
+
+
+let notes=[261,329,392,523];
+
+
+let i=0;
+
+
+musicLoop=setInterval(()=>{
+
+
+let osc=audio.createOscillator();
+
+
+let gain=audio.createGain();
+
+
+
+osc.frequency.value=notes[i];
+
+
+gain.gain.value=0.04;
+
+
+osc.connect(gain);
+
+gain.connect(audio.destination);
+
+
+osc.start();
+
+osc.stop(audio.currentTime+1);
+
+
+
+i++;
+
+
+if(i>=notes.length)i=0;
+
+
+},900);
+
+
+}
+
+
+
+musicBtn.onclick=function(){
+
+
+musicOn=!musicOn;
+
+
+if(musicOn){
+
+musicBtn.innerHTML="🔊 Muziek Aan";
+
+startMusic();
+
+}else{
+
+musicBtn.innerHTML="🔇 Muziek Uit";
+
+clearInterval(musicLoop);
+
+}
+
+
+}
+
+
+
+
+
+
+function partySound(){
+
+
+let ctx=new AudioContext();
+
+
+let osc=ctx.createOscillator();
+
+
+let gain=ctx.createGain();
+
+
+
+osc.frequency.value=700;
+
+gain.gain.value=.2;
+
+
+osc.connect(gain);
+
+gain.connect(ctx.destination);
+
+
+osc.start();
+
+
+osc.stop(
+ctx.currentTime+0.5
 );
-
-
-
-location.reload();
 
 
 }
@@ -529,39 +502,14 @@ location.reload();
 resetBtn.onclick=function(){
 
 
-localStorage.setItem(
-"highscore",
-0
-);
+localStorage.clear();
 
 
-highscore=0;
+location.reload();
 
 
-score=0;
+}
 
-
-level=1;
-
-
-time=60;
-
-
-
-highscoreText.textContent=0;
-
-scoreText.textContent=0;
-
-levelText.textContent=1;
-
-timerText.textContent=60;
-
-
-
-resultText.innerHTML="";
-
-
-};
 
 
 
@@ -572,30 +520,25 @@ resultText.innerHTML="";
 setInterval(()=>{
 
 
-let snow=document.createElement("div");
+let s=document.createElement("div");
 
 
-snow.innerHTML="❄";
+s.innerHTML="❄";
+
+s.style.position="fixed";
+
+s.style.color="white";
+
+s.style.left=Math.random()*innerWidth+"px";
+
+s.style.top="-20px";
 
 
-snow.style.position="fixed";
-
-snow.style.top="-20px";
-
-
-snow.style.left=
-Math.random()*innerWidth+"px";
-
-
-snow.style.color="white";
-
-
-document.body.appendChild(snow);
+document.body.appendChild(s);
 
 
 
 let y=-20;
-
 
 
 let fall=setInterval(()=>{
@@ -604,17 +547,14 @@ let fall=setInterval(()=>{
 y+=2;
 
 
-snow.style.top=y+"px";
-
+s.style.top=y+"px";
 
 
 if(y>innerHeight){
 
-
-snow.remove();
-
 clearInterval(fall);
 
+s.remove();
 
 }
 
@@ -624,52 +564,3 @@ clearInterval(fall);
 
 
 },200);
-function playPartySound(){
-
-
-let audio = new AudioContext();
-
-
-let osc = audio.createOscillator();
-
-
-let gain = audio.createGain();
-
-
-
-osc.type="sawtooth";
-
-
-osc.frequency.setValueAtTime(
-400,
-audio.currentTime
-);
-
-
-osc.frequency.linearRampToValueAtTime(
-900,
-audio.currentTime + 0.4
-);
-
-
-
-gain.gain.value=0.15;
-
-
-
-osc.connect(gain);
-
-gain.connect(audio.destination);
-
-
-
-osc.start();
-
-
-osc.stop(
-audio.currentTime + 0.5
-);
-
-
-
-}
