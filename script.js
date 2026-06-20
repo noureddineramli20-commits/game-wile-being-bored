@@ -1,3 +1,4 @@
+console.log("JS werkt");
 const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
 
