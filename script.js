@@ -142,6 +142,11 @@ scoreText.textContent=score;
 
 if(score > highscore){
 
+localStorage.setItem(
+"oldHighscore",
+highscore
+);
+
 
 highscore=score;
 
@@ -153,6 +158,9 @@ localStorage.setItem(
 "highscore",
 highscore
 );
+
+
+}
 
 
 }
