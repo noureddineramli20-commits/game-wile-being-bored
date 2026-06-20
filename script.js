@@ -1,3 +1,31 @@
+function createSnowflake() {
+  const snowflake = document.createElement("div");
+
+  snowflake.innerHTML = "❄";
+  snowflake.style.position = "fixed";
+  snowflake.style.left = Math.random() * window.innerWidth + "px";
+  snowflake.style.top = "-20px";
+  snowflake.style.color = "white";
+  snowflake.style.fontSize = Math.random() * 15 + 10 + "px";
+  snowflake.style.opacity = Math.random();
+
+  document.body.appendChild(snowflake);
+
+  let posY = -20;
+  const speed = Math.random() * 3 + 1;
+
+  const fall = setInterval(() => {
+    posY += speed;
+    snowflake.style.top = posY + "px";
+
+    if (posY > window.innerHeight) {
+      clearInterval(fall);
+      snowflake.remove();
+    }
+  }, 20);
+}
+
+setInterval(createSnowflake, 200);
 const startBtn = document.getElementById("startBtn");
 const game = document.getElementById("game");
 const target = document.getElementById("target");
