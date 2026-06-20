@@ -1,380 +1,107 @@
-const startBtn =
-document.getElementById("startBtn");
-
-
-const restartBtn =
-document.getElementById("restartBtn");
-
-
-const target =
-document.getElementById("target");
-
-
-const game =
-document.getElementById("game");
-
-
-const scoreText =
-document.getElementById("score");
-
-
-const timerText =
-document.getElementById("timer");
-
-
-const highscoreText =
-document.getElementById("highscore");
-
-
-const resultText =
-document.getElementById("result");
-
-
-const instruction =
-document.getElementById("instruction");
-
-
+const startBtn = document.getElementById("startBtn");
+const restartBtn = document.getElementById("restartBtn");
+const target = document.getElementById("target");
+const game = document.getElementById("game");
+const scoreText = document.getElementById("score");
+const timerText = document.getElementById("timer");
+const highscoreText = document.getElementById("highscore");
+const resultText = document.getElementById("result");
+const instruction = document.getElementById("instruction");
 
 let score = 0;
-
 let timeLeft = 60;
-
 let timer;
-
-
-let highscore =
-localStorage.getItem("highscore") || 0;
-
-
+let highscore = localStorage.getItem("highscore") || 0;
 
 highscoreText.textContent = highscore;
 
+// START
+startBtn.onclick = function () {
 
+  clearInterval(timer);
 
+  score = 0;
+  timeLeft = 60;
 
+  scoreText.textContent = score;
+  timerText.textContent = timeLeft;
 
-startBtn.onclick = function(){
+  game.style.display = "block";
+  target.style.display = "block";
 
+  startBtn.style.display = "none";
+  restartBtn.style.display = "none";
 
-score = 0;
+  instruction.style.display = "block";
+  resultText.innerHTML = "";
 
-timeLeft = 60;
+  moveTarget();
 
+  timer = setInterval(() => {
+    timeLeft--;
+    timerText.textContent = timeLeft;
 
-
-scoreText.textContent = score;
-
-timerText.textContent = timeLeft;
-
-
-
-game.style.display="block";
-
-
-target.style.display="block";
-
-
-resultText.innerHTML="";
-
-
-instruction.style.display="block";
-
-
-startBtn.style.display="none";
-
-
-restartBtn.style.display="none";
-
-
-
-moveTarget();
-
-
-
-
-clearInterval(timer);
-
-
-
-timer=setInterval(function(){
-
-
-
-timeLeft--;
-
-
-timerText.textContent=timeLeft;
-
-
-
-
-if(timeLeft <= 0){
-
-
-endGame();
-
-
-}
-
-
-
-},1000);
-
-
-
+    if (timeLeft <= 0) {
+      endGame();
+    }
+  }, 1000);
 };
 
+// CLICK
+target.onclick = function () {
 
+  score++;
+  scoreText.textContent = score;
 
+  if (score > highscore) {
+    highscore = score;
+    highscoreText.textContent = highscore;
+    localStorage.setItem("highscore", highscore);
+  }
 
-
-
-target.onclick=function(){
-
-
-score++;
-
-
-scoreText.textContent=score;
-
-
-
-
-if(score > highscore){
-
-localStorage.setItem(
-"oldHighscore",
-highscore
-);
-
-
-highscore=score;
-
-
-highscoreText.textContent=highscore;
-
-
-localStorage.setItem(
-"highscore",
-highscore
-);
-
-
-}
-
-
-}
-
-
-
-
-moveTarget();
-
-
+  moveTarget();
 };
 
+// END GAME
+function endGame() {
 
+  clearInterval(timer);
 
+  target.style.display = "none";
+  instruction.style.display = "none";
 
+  let newRecord = "";
 
+  if (score === highscore && score > 0) {
+    newRecord = `
+      <h2>🎉 Gefeliciteerd!</h2>
+      <p>Nieuw record!</p>
+    `;
+  }
 
-function moveTarget(){
+  resultText.innerHTML = `
+    ${newRecord}
+    <h2>⏰ Tijd voorbij!</h2>
+    Score: ${score}
+    <br>
+    Highscore: ${highscore}
+  `;
 
-
-
-let x =
-Math.random() *
-(window.innerWidth-100);
-
-
-
-let y =
-Math.random() *
-(window.innerHeight-100);
-
-
-
-target.style.left=x+"px";
-
-
-target.style.top=y+"px";
-
-
-
+  restartBtn.style.display = "block";
 }
 
-
-
-
-
-function endGame(){
-
-
-clearInterval(timer);
-
-
-target.style.display="none";
-
-
-instruction.style.display="none";
-
-
-
-let newRecord = "";
-
-
-if(score >= highscore && score > 0){
-
-newRecord = `
-
-<h2>🎉 Gefeliciteerd!</h2>
-
-<p>Je hebt een nieuw record!</p>
-
-`;
-
-}
-
-
-
-if(score > highscore){
-
-highscore = score;
-
-
-highscoreText.textContent = highscore;
-
-
-localStorage.setItem(
-"highscore",
-highscore
-);
-
-}
-
-
-
-
-resultText.innerHTML =
-
-
-`
-
-${newRecord}
-
-
-<h2>⏰ Tijd voorbij!</h2>
-
-Score: ${score}
-
-<br>
-
-Highscore: ${highscore}
-
-
-`;
-
-
-
-restartBtn.style.display="block";
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-restartBtn.onclick=function(){
-
-
-
-restartBtn.style.display="none";
-
-
-startBtn.style.display="block";
-
-
-
+// RESTART
+restartBtn.onclick = function () {
+  startBtn.style.display = "block";
+  restartBtn.style.display = "none";
+  resultText.innerHTML = "";
 };
 
+// MOVE TARGET
+function moveTarget() {
+  let x = Math.random() * (window.innerWidth - 100);
+  let y = Math.random() * (window.innerHeight - 100);
 
-
-
-
-
-
-function snow(){
-
-
-
-let flake=document.createElement("div");
-
-
-flake.innerHTML="❄";
-
-
-flake.style.position="fixed";
-
-flake.style.top="-20px";
-
-
-flake.style.left=
-Math.random()*window.innerWidth+"px";
-
-
-flake.style.color="white";
-
-
-flake.style.fontSize=
-Math.random()*20+10+"px";
-
-
-
-document.body.appendChild(flake);
-
-
-
-let y=-20;
-
-
-
-let fall=setInterval(()=>{
-
-
-
-y+=2;
-
-
-flake.style.top=y+"px";
-
-
-
-if(y>window.innerHeight){
-
-
-clearInterval(fall);
-
-
-flake.remove();
-
-
+  target.style.left = x + "px";
+  target.style.top = y + "px";
 }
-
-
-
-},20);
-
-
-
-}
-
-
-
-setInterval(snow,200);
