@@ -43,9 +43,10 @@ z-index:100;
 
 
 #game {
-
 display:none;
-
+position:relative;
+z-index:10;
+}
 }
 
 
@@ -179,9 +180,7 @@ clip-path:polygon(
 }
 
 
-
 .trees {
-
 
 position:fixed;
 
