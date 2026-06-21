@@ -1,7 +1,6 @@
 const startBtn=document.getElementById("startBtn");
 const restartBtn=document.getElementById("restartBtn");
 const resetBtn=document.getElementById("resetBtn");
-const musicBtn=document.getElementById("musicBtn");
 
 
 const target=document.getElementById("target");
@@ -36,11 +35,6 @@ let newRecord=false;
 
 
 
-let musicOn=true;
-
-let audio;
-
-let musicLoop;
 
 
 
@@ -98,7 +92,6 @@ moveEnemies();
 
 
 
-startMusic();
 
 
 
@@ -280,6 +273,7 @@ enemy.ontouchstart=dead;
 
 function dead(){
 
+deathSound();
 
 endScreen("💀 Je bent geraakt!");
 
@@ -376,85 +370,11 @@ hsl(${kleur},70%,50%)
 
 
 
-// muziek
-
-function startMusic(){
-
-
-if(!musicOn)return;
-
-
-audio=new AudioContext();
-
-
-let notes=[261,329,392,523];
-
-
-let i=0;
-
-
-musicLoop=setInterval(()=>{
-
-
-let osc=audio.createOscillator();
-
-
-let gain=audio.createGain();
 
 
 
-osc.frequency.value=notes[i];
 
 
-gain.gain.value=0.04;
-
-
-osc.connect(gain);
-
-gain.connect(audio.destination);
-
-
-osc.start();
-
-osc.stop(audio.currentTime+1);
-
-
-
-i++;
-
-
-if(i>=notes.length)i=0;
-
-
-},900);
-
-
-}
-
-
-
-musicBtn.onclick=function(){
-
-
-musicOn=!musicOn;
-
-
-if(musicOn){
-
-musicBtn.innerHTML="🔊 Muziek Aan";
-
-startMusic();
-
-}else{
-
-musicBtn.innerHTML="🔇 Muziek Uit";
-
-clearInterval(musicLoop);
-
-}
-
-
-}
 
 
 
@@ -463,7 +383,40 @@ clearInterval(musicLoop);
 
 function partySound(){
 
+function deathSound(){
 
+let ctx=new AudioContext();
+
+let osc=ctx.createOscillator();
+
+let gain=ctx.createGain();
+
+osc.type="sawtooth";
+
+osc.frequency.setValueAtTime(
+300,
+ctx.currentTime
+);
+
+osc.frequency.linearRampToValueAtTime(
+80,
+ctx.currentTime+0.4
+);
+
+gain.gain.value=0.15;
+
+osc.connect(gain);
+
+gain.connect(ctx.destination);
+
+osc.start();
+
+osc.stop(
+ctx.currentTime+0.5
+);
+
+}
+  
 let ctx=new AudioContext();
 
 
