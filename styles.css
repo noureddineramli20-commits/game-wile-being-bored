@@ -91,7 +91,7 @@ button {
 }
 #coin2 {
   animation-name: coin2;
-  animation-duration: 8s;
+  animation-duration: 5s;
   animation-direction: normal;
   animation-delay: 3s;
   animation-iteration-count: infinite;
