@@ -1,96 +1,29 @@
 <!DOCTYPE html>
-<html lang="nl">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Klik Game</title>
-
-<link rel="stylesheet" href="styles.css">
-
-</head>
-
-
-<body>
-
-
-<div class="moon"></div>
-<div class="mountains"></div>
-<div class="trees"></div>
-
-
-<h1>Klik Game</h1>
-
-
-<button id="startBtn">Start Spel</button>
-
-<button id="resetBtn">Reset</button>
-
-
-
-
-<div id="game">
-
-
-<h2>
-
-Score:
-<span id="score">0</span>
-
-|
-
-Level:
-<span id="level">1</span>
-
-|
-
-Highscore:
-<span id="highscore">0</span>
-
-</h2>
-
-
-<h2>
-Tijd:
-<span id="timer">60</span>
-</h2>
-
-
-
-<p id="instruction">
-🔴 Klik rode bal - 🔵 Vermijd blauwe vijanden
-</p>
-
-
-
-<div id="target"></div>
-
-
-<div class="enemy"></div>
-
-<div class="enemy"></div>
-
-
-</div>
-
-
-
-<div id="result"></div>
-
-
-
-<button id="restartBtn">
-Opnieuw spelen
-</button>
-
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>coin colector</title>
+    <link
+      rel="icon"
+      href="golden-cryptocurrency-coin-vector-illustratie_1308-178402.avif"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div>
+      <h1>SCORE=</h1>
+      <h1 id="score"></h1>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <button id="coin1">coin +1</button>
+    <button id="coin2">coin +10</button>
+    <button id="coin3">coin +100</button>
+    <button id="reset">reset the score</button>
+    <script src="script.js"></script>
+  </body>
 </html>
