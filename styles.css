@@ -93,14 +93,14 @@ button {
   animation-name: coin2;
   animation-duration: 5s;
   animation-direction: normal;
-  animation-delay: 3s;
+  animation-delay: 4s;
   animation-iteration-count: infinite;
 }
 #coin3 {
   animation-name: coin3;
   animation-duration: 5s;
   animation-direction: normal;
-  animation-delay: 5s;
+  animation-delay: 6s;
   animation-iteration-count: infinite;
 }
 @keyframes coin1 {
