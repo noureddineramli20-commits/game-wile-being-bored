@@ -235,7 +235,7 @@ width:90px;
     cursor: pointer;
   }
   40% {
-    transform: translateY(30px) translate(-430px) rotate(1080deg);
+    transform: translateY(-10px) translate(-430px) rotate(1080deg);
         pointer-events: fill; 
     opacity: 1;         
     cursor: pointer;
@@ -271,7 +271,7 @@ width:90px;
     cursor: pointer;
   }
   100% {
-    transform: translateY(30px) translate(-430px) rotate(1080deg);
+    transform: translateY(0px) translate(-430px) rotate(1080deg);
         pointer-events: fill; 
     opacity: 1;         
     cursor: pointer;
