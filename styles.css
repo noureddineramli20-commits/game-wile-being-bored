@@ -97,6 +97,7 @@ button {
   transform: scale(0.9);
 }
 #coin1 {
+  border: none;
   animation-name: coin1;
   animation-duration: 10s;
   animation-direction: normal;
@@ -109,6 +110,7 @@ button {
   height:50px;
 }
 #coin2 {
+  border: none;
   animation-name: coin2;
   animation-duration: 5s;
   animation-direction: normal;
@@ -117,11 +119,11 @@ button {
    pointer-events: none; 
     opacity: 0.5;         
     cursor: not-allowed;
-  
   width:70px;
   height:70px;
 }
 #coin3 {
+  border: none;
   animation-name: coin3;
   animation-duration: 5s;
   animation-direction: normal;
