@@ -65,7 +65,7 @@ div {
 button {
   z-index: 2;
   cursor: pointer;
-  background-color: yellow;
+  background-color: hsl(62, 100%, 40%);
   width: 40px;
   height: 40px;
   border-radius: 50px;
