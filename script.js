@@ -17,7 +17,5 @@ document.getElementById("coin3").onclick = function () {
   document.getElementById("score").textContent = something;
 };
 
-document.getElementById("reset").onclick = function () {
-  document.getElementById("score").textContent = something -= something;
-};
+
 console.log("something");
