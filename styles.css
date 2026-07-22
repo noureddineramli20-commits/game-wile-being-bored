@@ -253,7 +253,7 @@ width:90px;
     cursor: pointer;
   }
   70% {
-    transform: translate(0px) translateY(-90vh) rotate(1080deg);
+    transform: translate(0px) translateY(-75vh) rotate(1080deg);
         pointer-events: fill; 
     opacity: 1;         
     cursor: pointer;
