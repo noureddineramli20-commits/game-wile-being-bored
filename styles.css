@@ -7,6 +7,10 @@ body {
   animation-iteration-count: infinite;
 }
 @keyframes body {
+     0% {
+    background-color: red;
+    color: blue;
+  }
 25% {background-color: blue; color: red;}
   50% {background-color: yellow; color: blue;}
   75% {background-color: purple; color: yellow;}
