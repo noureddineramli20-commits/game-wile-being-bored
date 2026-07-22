@@ -1,4 +1,4 @@
-const something = 0;
+let something = 0;
 
 document.getElementById("score").textContent = something;
 
