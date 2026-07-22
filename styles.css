@@ -102,6 +102,11 @@ button {
   animation-direction: normal;
   animation-delay: 2s;
   animation-iteration-count: infinite;
+  pointer-events: none; 
+    opacity: 0.5;         
+    cursor: not-allowed;
+  width:50px;
+  height:50px;
 }
 #coin2 {
   animation-name: coin2;
@@ -109,6 +114,12 @@ button {
   animation-direction: normal;
   animation-delay: 4s;
   animation-iteration-count: infinite;
+   pointer-events: none; 
+    opacity: 0.5;         
+    cursor: not-allowed;
+  
+  width:70px;
+  height:70px;
 }
 #coin3 {
   animation-name: coin3;
@@ -116,79 +127,153 @@ button {
   animation-direction: normal;
   animation-delay: 6s;
   animation-iteration-count: infinite;
+  pointer-events: none; 
+    opacity: 0.5;         
+    cursor: not-allowed;
+width:90px;
+  height:90px;
 }
 @keyframes coin1 {
   0% {
     transform: translateY(-60vh) translate(400px) rotate(1080deg);
+    pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   20% {
     transform: translateY(-20vh) translate(600px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   40% {
     transform: translateY(-40vh) translate(-450px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   60% {
     transform: translateY(-10vh) translate(300px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   80% {
     transform: translateY(-80vh) translate(450px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   100% {
     transform: translate(-350px) translateY(-60px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
 }
 @keyframes coin2 {
   0% {
     transform: translate(-500px) translateY(-40vh);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   20% {
     transform: translateY(10px) translate(450px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   40% {
     transform: translateY(-70vh) translate(-300px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   60% {
     transform: translateY(-40vh) translate(100px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   80% {
     transform: translateY(-50px) translate(-400px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   100% {
     transform: translateY(-50px) translate(80px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
 }
 @keyframes coin3 {
   0% {
     transform: translate(-80px) translateY(-50vh) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   10% {
     transform: translateY(-50vh) translate(300px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   20% {
     transform: translateY(-10vh) translate(-300px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   30% {
     transform: translateY(-30vh) translate(20px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   40% {
     transform: translateY(30px) translate(-430px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   50% {
     transform: translateY(-60vh) translate(200px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   60% {
     transform: translate(-300px) translateY(-40vh) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   70% {
     transform: translate(0px) translateY(-90vh) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   80% {
     transform: translateY(-10vh) translate(100px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   90% {
     transform: translateY(-30vh) translate(300px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
   100% {
     transform: translateY(30px) translate(-430px) rotate(1080deg);
+        pointer-events: fill; 
+    opacity: 1;         
+    cursor: pointer;
   }
 }
