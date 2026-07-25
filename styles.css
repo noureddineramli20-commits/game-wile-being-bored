@@ -5,16 +5,30 @@ body {
   animation-duration: 20s;
   animation-delay: 6s;
   animation-iteration-count: infinite;
+  background-color: hsl(180, 100%, 20%);
+  color: white;
 }
 @keyframes body {
-     0% {
-    background-color: red;
-    color: blue;
+  0% {
+    background-color: hsl(0, 100%, 30%);
+    color: hsl(240, 100%, 30%);
   }
-25% {background-color: blue; color: red;}
-  50% {background-color: yellow; color: blue;}
-  75% {background-color: purple; color: yellow;}
-  100% {background-color: red; color: blue;}
+  25% {
+    background-color: hsl(102, 80%, 20%);
+    color: hsl(292, 22%, 27%);
+  }
+  50% {
+    background-color: hsl(60, 100%, 30%);
+    color: hsl(0, 100%, 30%);
+  }
+  75% {
+    background-color: purple;
+    color: hsl(60, 100%, 30%);
+  }
+  100% {
+    background-color: hsl(0, 100%, 30%);
+    color: hsl(240, 100%, 30%);
+  }
 }
 h1 {
   margin: 0;
@@ -104,7 +118,7 @@ button {
   animation-delay: 2s;
   animation-iteration-count: infinite;
   pointer-events: none; 
-    opacity: 0.5;         
+        
     cursor: not-allowed;
   width:50px;
   height:50px;
@@ -117,7 +131,7 @@ button {
   animation-delay: 4s;
   animation-iteration-count: infinite;
    pointer-events: none; 
-    opacity: 0.5;         
+   
     cursor: not-allowed;
   width:70px;
   height:70px;
@@ -130,7 +144,7 @@ button {
   animation-delay: 6s;
   animation-iteration-count: infinite;
   pointer-events: none; 
-    opacity: 0.5;         
+     
     cursor: not-allowed;
 width:90px;
   height:90px;
