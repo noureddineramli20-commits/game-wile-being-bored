@@ -283,7 +283,7 @@ width:90px;
 
 
 /* ================================= */
-/* PHONE PORTRAIT (staande telefoon) */
+/* PHONE PORTRAIT - STAANDE TELEFOON */
 /* ================================= */
 
 @media screen and (max-width: 767px) and (orientation: portrait) {
@@ -295,17 +295,16 @@ width:90px;
     top: 8vh;
     transform: translateX(-50%);
     width: 100%;
-    font-size: 35px;
     justify-content: center;
     text-align: center;
+    font-size: 35px;
   }
 
 
-
-  /* uitleg tekst */
+  /* UITLEG */
   #box2 {
     left: 50%;
-    top: 22vh;
+    top: 25vh;
     transform: translateX(-50%);
     width: 90%;
     height: auto;
@@ -314,141 +313,131 @@ width:90px;
   }
 
 
-
-  /* reset knop rechtsonder */
+  /* RESET KNOP RECHTSONDER */
   #reset {
+    position: fixed;
     left: auto;
     right: 20px;
     top: auto;
     bottom: 20px;
-    position: fixed;
   }
 
 
+  /* MUNTEN KLIKBAAR + GROOTTE */
+  #coin1,
+  #coin2,
+  #coin3 {
+    pointer-events: auto;
+    cursor: pointer;
+  }
 
-  /* munten */
+
   #coin1 {
     width: 45px;
     height: 45px;
-    animation-name: phoneCoin1;
+    animation-name: phonePortraitCoin1;
   }
 
 
   #coin2 {
     width: 60px;
     height: 60px;
-    animation-name: phoneCoin2;
+    animation-name: phonePortraitCoin2;
   }
 
 
   #coin3 {
     width: 75px;
     height: 75px;
-    animation-name: phoneCoin3;
+    animation-name: phonePortraitCoin3;
   }
 
 
 
-  /* ===================== */
-  /* COIN 1 PHONE PORTRAIT */
-  /* ===================== */
+  /* ============================== */
+  /* COIN 1 */
+  /* ============================== */
 
-  @keyframes phoneCoin1 {
+  @keyframes phonePortraitCoin1 {
 
     0% {
-      transform: translate(20vw,-20vh) rotate(1080deg);
+      transform: translate(15vw,-20vh) rotate(1080deg);
     }
 
-    20% {
+    25% {
       transform: translate(-20vw,-35vh) rotate(1080deg);
     }
 
-    40% {
+    50% {
       transform: translate(20vw,-50vh) rotate(1080deg);
     }
 
-    60% {
-      transform: translate(-15vw,-60vh) rotate(1080deg);
-    }
-
-    80% {
-      transform: translate(15vw,-35vh) rotate(1080deg);
+    75% {
+      transform: translate(-15vw,-30vh) rotate(1080deg);
     }
 
     100% {
-      transform: translate(-10vw,-20vh) rotate(1080deg);
+      transform: translate(10vw,-20vh) rotate(1080deg);
     }
 
   }
 
 
 
-  /* ===================== */
-  /* COIN 2 PHONE PORTRAIT */
-  /* ===================== */
+  /* ============================== */
+  /* COIN 2 */
+  /* ============================== */
 
-  @keyframes phoneCoin2 {
+  @keyframes phonePortraitCoin2 {
 
     0% {
       transform: translate(-15vw,-25vh) rotate(1080deg);
     }
 
-    20% {
-      transform: translate(20vw,-20vh) rotate(1080deg);
+    25% {
+      transform: translate(20vw,-40vh) rotate(1080deg);
     }
 
-    40% {
-      transform: translate(-20vw,-50vh) rotate(1080deg);
+    50% {
+      transform: translate(-20vw,-55vh) rotate(1080deg);
     }
 
-    60% {
-      transform: translate(15vw,-40vh) rotate(1080deg);
-    }
-
-    80% {
-      transform: translate(-10vw,-30vh) rotate(1080deg);
+    75% {
+      transform: translate(15vw,-35vh) rotate(1080deg);
     }
 
     100% {
-      transform: translate(10vw,-45vh) rotate(1080deg);
+      transform: translate(-10vw,-25vh) rotate(1080deg);
     }
 
   }
 
 
 
-  /* ===================== */
-  /* COIN 3 PHONE PORTRAIT */
-  /* ===================== */
+  /* ============================== */
+  /* COIN 3 */
+  /* ============================== */
 
-  @keyframes phoneCoin3 {
+  @keyframes phonePortraitCoin3 {
 
     0% {
-      transform: translate(10vw,-20vh) rotate(1080deg);
+      transform: translate(10vw,-15vh) rotate(1080deg);
     }
 
-    15% {
+    20% {
       transform: translate(-20vw,-35vh) rotate(1080deg);
     }
 
-    30% {
+    40% {
       transform: translate(20vw,-55vh) rotate(1080deg);
     }
 
-    45% {
-      transform: translate(-15vw,-30vh) rotate(1080deg);
-    }
-
     60% {
-      transform: translate(20vw,-65vh) rotate(1080deg);
+      transform: translate(-15vw,-70vh) rotate(1080deg);
     }
 
-    75% {
-      transform: translate(-20vw,-45vh) rotate(1080deg);
-    }
-
-    90% {
-      transform: translate(15vw,-30vh) rotate(1080deg);
+    80% {
+      transform: translate(15vw,-40vh) rotate(1080deg);
     }
 
     100% {
@@ -461,107 +450,109 @@ width:90px;
 }
 
 
+
+
 /* ================================= */
-/* PHONE LANDSCAPE (liggende telefoon) */
+/* PHONE LANDSCAPE - LIGGENDE TELEFOON */
 /* ================================= */
 
-@media screen and (max-width: 932px) and (orientation: landscape) {
+@media screen and (max-width: 767px) and (orientation: landscape) {
 
 
   /* SCORE */
   div {
-    left: 50%;
-    top: 5vh;
-    transform: translateX(-50%);
-    width: 100%;
-    font-size: 32px;
-    justify-content: center;
-    text-align: center;
+    left:50%;
+    top:5vh;
+    transform:translateX(-50%);
+    width:100%;
+    justify-content:center;
+    text-align:center;
+    font-size:32px;
   }
 
 
 
-  /* uitleg tekst */
+  /* UITLEG */
   #box2 {
-    left: 50%;
-    top: 25vh;
-    transform: translateX(-50%);
-    width: 80%;
-    height: auto;
-    font-size: 20px;
-    text-align: center;
+    left:50%;
+    top:25vh;
+    transform:translateX(-50%);
+    width:85%;
+    height:auto;
+    font-size:20px;
+    text-align:center;
   }
 
 
 
-  /* reset knop rechtsonder */
+  /* RESET KNOP RECHTSONDER */
   #reset {
-    left: auto;
-    right: 20px;
-    top: auto;
-    bottom: 20px;
-    position: fixed;
+    position:fixed;
+    left:auto;
+    right:20px;
+    top:auto;
+    bottom:20px;
   }
 
 
 
-  /* munten */
+  /* MUNTEN KLIKBAAR */
+  #coin1,
+  #coin2,
+  #coin3 {
+    pointer-events:auto;
+    cursor:pointer;
+  }
+
+
+
   #coin1 {
     width:45px;
     height:45px;
-    animation-name: phoneLandscapeCoin1;
+    animation-name:phoneLandscapeCoin1;
   }
 
 
   #coin2 {
     width:60px;
     height:60px;
-    animation-name: phoneLandscapeCoin2;
+    animation-name:phoneLandscapeCoin2;
   }
 
 
   #coin3 {
     width:75px;
     height:75px;
-    animation-name: phoneLandscapeCoin3;
+    animation-name:phoneLandscapeCoin3;
   }
 
 
 
+
   /* =============================== */
-  /* COIN 1 PHONE LANDSCAPE */
+  /* COIN 1 */
   /* =============================== */
 
   @keyframes phoneLandscapeCoin1 {
 
-
     0% {
-      transform:translate(-20vw,-10vh) rotate(1080deg);
+      transform:translate(-15vw,-15vh) rotate(1080deg);
     }
 
-
-    20% {
-      transform:translate(30vw,-20vh) rotate(1080deg);
+    25% {
+      transform:translate(25vw,-25vh) rotate(1080deg);
     }
 
-
-    40% {
-      transform:translate(-35vw,-35vh) rotate(1080deg);
+    50% {
+      transform:translate(-30vw,-35vh) rotate(1080deg);
     }
 
-
-    60% {
-      transform:translate(25vw,-45vh) rotate(1080deg);
+    75% {
+      transform:translate(20vw,-20vh) rotate(1080deg);
     }
-
-
-    80% {
-      transform:translate(-20vw,-25vh) rotate(1080deg);
-    }
-
 
     100% {
-      transform:translate(15vw,-15vh) rotate(1080deg);
+      transform:translate(-10vw,-15vh) rotate(1080deg);
     }
 
   }
@@ -571,39 +562,29 @@ width:90px;
 
 
   /* =============================== */
-  /* COIN 2 PHONE LANDSCAPE */
+  /* COIN 2 */
   /* =============================== */
 
   @keyframes phoneLandscapeCoin2 {
 
-
     0% {
-      transform:translate(20vw,-20vh) rotate(1080deg);
+      transform:translate(15vw,-20vh) rotate(1080deg);
     }
 
-
-    20% {
-      transform:translate(-30vw,-35vh) rotate(1080deg);
+    25% {
+      transform:translate(-25vw,-35vh) rotate(1080deg);
     }
 
-
-    40% {
-      transform:translate(35vw,-10vh) rotate(1080deg);
+    50% {
+      transform:translate(30vw,-15vh) rotate(1080deg);
     }
 
-
-    60% {
-      transform:translate(-25vw,-45vh) rotate(1080deg);
+    75% {
+      transform:translate(-20vw,-40vh) rotate(1080deg);
     }
-
-
-    80% {
-      transform:translate(20vw,-30vh) rotate(1080deg);
-    }
-
 
     100% {
-      transform:translate(-10vw,-20vh) rotate(1080deg);
+      transform:translate(10vw,-20vh) rotate(1080deg);
     }
 
   }
@@ -613,46 +594,30 @@ width:90px;
 
 
   /* =============================== */
-  /* COIN 3 PHONE LANDSCAPE */
+  /* COIN 3 */
   /* =============================== */
 
   @keyframes phoneLandscapeCoin3 {
-
 
     0% {
       transform:translate(-10vw,-15vh) rotate(1080deg);
     }
 
-
-    15% {
-      transform:translate(30vw,-30vh) rotate(1080deg);
+    20% {
+      transform:translate(25vw,-30vh) rotate(1080deg);
     }
 
-
-    30% {
-      transform:translate(-35vw,-45vh) rotate(1080deg);
+    40% {
+      transform:translate(-30vw,-45vh) rotate(1080deg);
     }
-
-
-    45% {
-      transform:translate(25vw,-20vh) rotate(1080deg);
-    }
-
 
     60% {
-      transform:translate(-25vw,-55vh) rotate(1080deg);
+      transform:translate(30vw,-25vh) rotate(1080deg);
     }
 
-
-    75% {
-      transform:translate(35vw,-35vh) rotate(1080deg);
+    80% {
+      transform:translate(-20vw,-35vh) rotate(1080deg);
     }
-
-
-    90% {
-      transform:translate(-15vw,-25vh) rotate(1080deg);
-    }
-
 
     100% {
       transform:translate(10vw,-15vh) rotate(1080deg);
@@ -663,8 +628,11 @@ width:90px;
 
 }
 
+
+
+
 /* ================================= */
-/* TABLET PORTRAIT (staande tablet) */
+/* TABLET PORTRAIT - STAANDE TABLET */
 /* ================================= */
 
 @media screen and (min-width:768px) and (max-width:1024px) and (orientation:portrait) {
@@ -673,17 +641,17 @@ width:90px;
   /* SCORE */
   div {
     left:50%;
-    top:10vh;
+    top:8vh;
     transform:translateX(-50%);
     width:100%;
-    font-size:45px;
     justify-content:center;
     text-align:center;
+    font-size:45px;
   }
 
 
 
-  /* uitleg tekst */
+  /* UITLEG */
   #box2 {
     left:50%;
     top:25vh;
@@ -696,18 +664,27 @@ width:90px;
 
 
 
-  /* reset knop rechtsonder */
+  /* RESET KNOP RECHTSONDER */
   #reset {
+    position:fixed;
     left:auto;
     right:30px;
     top:auto;
     bottom:30px;
-    position:fixed;
   }
 
 
 
-  /* munten */
+  /* MUNTEN KLIKBAAR */
+  #coin1,
+  #coin2,
+  #coin3 {
+    pointer-events:auto;
+    cursor:pointer;
+  }
+
+
+
   #coin1 {
     width:55px;
     height:55px;
@@ -731,34 +708,30 @@ width:90px;
 
 
 
-  /* ============================ */
-  /* COIN 1 TABLET PORTRAIT */
-  /* ============================ */
+  /* =============================== */
+  /* COIN 1 */
+  /* =============================== */
 
   @keyframes tabletPortraitCoin1 {
 
     0% {
-      transform:translate(20vw,-20vh) rotate(1080deg);
+      transform:translate(20vw,-15vh) rotate(1080deg);
     }
 
-    20% {
+    25% {
       transform:translate(-25vw,-35vh) rotate(1080deg);
     }
 
-    40% {
-      transform:translate(30vw,-50vh) rotate(1080deg);
+    50% {
+      transform:translate(25vw,-55vh) rotate(1080deg);
     }
 
-    60% {
-      transform:translate(-25vw,-65vh) rotate(1080deg);
-    }
-
-    80% {
-      transform:translate(20vw,-40vh) rotate(1080deg);
+    75% {
+      transform:translate(-20vw,-30vh) rotate(1080deg);
     }
 
     100% {
-      transform:translate(-15vw,-25vh) rotate(1080deg);
+      transform:translate(15vw,-20vh) rotate(1080deg);
     }
 
   }
@@ -767,73 +740,25 @@ width:90px;
 
 
 
-  /* ============================ */
-  /* COIN 2 TABLET PORTRAIT */
-  /* ============================ */
+  /* =============================== */
+  /* COIN 2 */
+  /* =============================== */
 
   @keyframes tabletPortraitCoin2 {
 
     0% {
-      transform:translate(-20vw,-25vh) rotate(1080deg);
+      transform:translate(-20vw,-20vh) rotate(1080deg);
     }
 
-    20% {
-      transform:translate(25vw,-20vh) rotate(1080deg);
+    25% {
+      transform:translate(25vw,-40vh) rotate(1080deg);
     }
 
-    40% {
-      transform:translate(-30vw,-55vh) rotate(1080deg);
-    }
-
-    60% {
-      transform:translate(25vw,-45vh) rotate(1080deg);
-    }
-
-    80% {
-      transform:translate(-20vw,-30vh) rotate(1080deg);
-    }
-
-    100% {
-      transform:translate(15vw,-55vh) rotate(1080deg);
-    }
-
-  }
-
-
-
-
-
-  /* ============================ */
-  /* COIN 3 TABLET PORTRAIT */
-  /* ============================ */
-
-  @keyframes tabletPortraitCoin3 {
-
-    0% {
-      transform:translate(15vw,-20vh) rotate(1080deg);
-    }
-
-    15% {
-      transform:translate(-25vw,-35vh) rotate(1080deg);
-    }
-
-    30% {
-      transform:translate(30vw,-55vh) rotate(1080deg);
-    }
-
-    45% {
-      transform:translate(-20vw,-30vh) rotate(1080deg);
-    }
-
-    60% {
-      transform:translate(25vw,-70vh) rotate(1080deg);
+    50% {
+      transform:translate(-30vw,-60vh) rotate(1080deg);
     }
 
     75% {
-      transform:translate(-30vw,-50vh) rotate(1080deg);
-    }
-
-    90% {
       transform:translate(20vw,-35vh) rotate(1080deg);
     }
 
@@ -844,10 +769,49 @@ width:90px;
   }
 
 
+
+
+
+  /* =============================== */
+  /* COIN 3 */
+  /* =============================== */
+
+  @keyframes tabletPortraitCoin3 {
+
+    0% {
+      transform:translate(15vw,-15vh) rotate(1080deg);
+    }
+
+    20% {
+      transform:translate(-25vw,-35vh) rotate(1080deg);
+    }
+
+    40% {
+      transform:translate(30vw,-55vh) rotate(1080deg);
+    }
+
+    60% {
+      transform:translate(-25vw,-70vh) rotate(1080deg);
+    }
+
+    80% {
+      transform:translate(20vw,-40vh) rotate(1080deg);
+    }
+
+    100% {
+      transform:translate(-10vw,-20vh) rotate(1080deg);
+    }
+
+  }
+
+
 }
 
+
+
+
 /* ================================= */
-/* TABLET LANDSCAPE (liggende tablet) */
+/* TABLET LANDSCAPE - LIGGENDE TABLET */
 /* ================================= */
 
 @media screen and (min-width:768px) and (max-width:1366px) and (orientation:landscape) {
@@ -859,14 +823,14 @@ width:90px;
     top:7vh;
     transform:translateX(-50%);
     width:100%;
-    font-size:45px;
     justify-content:center;
     text-align:center;
+    font-size:45px;
   }
 
 
 
-  /* uitleg tekst */
+  /* UITLEG */
   #box2 {
     left:50%;
     top:25vh;
@@ -879,18 +843,27 @@ width:90px;
 
 
 
-  /* reset knop rechtsonder */
+  /* RESET KNOP RECHTSONDER */
   #reset {
+    position:fixed;
     left:auto;
     right:30px;
     top:auto;
     bottom:30px;
-    position:fixed;
   }
 
 
 
-  /* munten */
+  /* MUNTEN KLIKBAAR */
+  #coin1,
+  #coin2,
+  #coin3 {
+    pointer-events:auto;
+    cursor:pointer;
+  }
+
+
+
   #coin1 {
     width:55px;
     height:55px;
@@ -914,37 +887,59 @@ width:90px;
 
 
 
-  /* ============================== */
-  /* COIN 1 TABLET LANDSCAPE */
-  /* ============================== */
+  /* =============================== */
+  /* COIN 1 */
+  /* =============================== */
 
   @keyframes tabletLandscapeCoin1 {
-
 
     0% {
       transform:translate(-20vw,-15vh) rotate(1080deg);
     }
 
-
-    20% {
+    25% {
       transform:translate(30vw,-25vh) rotate(1080deg);
     }
 
-
-    40% {
-      transform:translate(-35vw,-40vh) rotate(1080deg);
+    50% {
+      transform:translate(-35vw,-45vh) rotate(1080deg);
     }
 
-
-    60% {
-      transform:translate(30vw,-55vh) rotate(1080deg);
+    75% {
+      transform:translate(25vw,-30vh) rotate(1080deg);
     }
 
-
-    80% {
-      transform:translate(-20vw,-35vh) rotate(1080deg);
+    100% {
+      transform:translate(-15vw,-15vh) rotate(1080deg);
     }
 
+  }
+
+
+
+
+
+  /* =============================== */
+  /* COIN 2 */
+  /* =============================== */
+
+  @keyframes tabletLandscapeCoin2 {
+
+    0% {
+      transform:translate(20vw,-20vh) rotate(1080deg);
+    }
+
+    25% {
+      transform:translate(-30vw,-35vh) rotate(1080deg);
+    }
+
+    50% {
+      transform:translate(35vw,-20vh) rotate(1080deg);
+    }
+
+    75% {
+      transform:translate(-25vw,-50vh) rotate(1080deg);
+    }
 
     100% {
       transform:translate(15vw,-20vh) rotate(1080deg);
@@ -956,89 +951,31 @@ width:90px;
 
 
 
-  /* ============================== */
-  /* COIN 2 TABLET LANDSCAPE */
-  /* ============================== */
-
-  @keyframes tabletLandscapeCoin2 {
-
-
-    0% {
-      transform:translate(20vw,-20vh) rotate(1080deg);
-    }
-
-
-    20% {
-      transform:translate(-30vw,-35vh) rotate(1080deg);
-    }
-
-
-    40% {
-      transform:translate(35vw,-20vh) rotate(1080deg);
-    }
-
-
-    60% {
-      transform:translate(-30vw,-55vh) rotate(1080deg);
-    }
-
-
-    80% {
-      transform:translate(20vw,-35vh) rotate(1080deg);
-    }
-
-
-    100% {
-      transform:translate(-15vw,-25vh) rotate(1080deg);
-    }
-
-  }
-
-
-
-
-
-  /* ============================== */
-  /* COIN 3 TABLET LANDSCAPE */
-  /* ============================== */
+  /* =============================== */
+  /* COIN 3 */
+  /* =============================== */
 
   @keyframes tabletLandscapeCoin3 {
 
-
     0% {
-      transform:translate(-15vw,-20vh) rotate(1080deg);
+      transform:translate(-15vw,-15vh) rotate(1080deg);
     }
 
-
-    15% {
-      transform:translate(30vw,-35vh) rotate(1080deg);
+    20% {
+      transform:translate(30vw,-30vh) rotate(1080deg);
     }
 
-
-    30% {
+    40% {
       transform:translate(-35vw,-50vh) rotate(1080deg);
     }
 
-
-    45% {
-      transform:translate(25vw,-30vh) rotate(1080deg);
-    }
-
-
     60% {
-      transform:translate(-30vw,-65vh) rotate(1080deg);
+      transform:translate(30vw,-65vh) rotate(1080deg);
     }
 
-
-    75% {
-      transform:translate(35vw,-45vh) rotate(1080deg);
+    80% {
+      transform:translate(-20vw,-35vh) rotate(1080deg);
     }
-
-
-    90% {
-      transform:translate(-20vw,-30vh) rotate(1080deg);
-    }
-
 
     100% {
       transform:translate(15vw,-20vh) rotate(1080deg);
