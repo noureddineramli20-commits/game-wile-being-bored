@@ -6,7 +6,7 @@ document.getElementById("coin1").onclick = function () {
   document.getElementById("score").textContent = something;
 
   // Bericht berekenen en updaten
-if (something < 999)  {
+if (something > 999)  {
      document.getElementById("concrats").textContent ="";
 }
  else if (something >= 100000) {
