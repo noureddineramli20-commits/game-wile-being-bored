@@ -332,3 +332,316 @@ button {
     cursor: pointer;
   }
 }
+
+/* ======================================================= */
+/* MEDIA QUERIES VOOR TABLET EN TELEFOON                  */
+/* ======================================================= */
+
+/* ------------------------------------------------------- */
+/* 1. TABLET STAAND (Portrait)                             */
+/* ------------------------------------------------------- */
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  div {
+    left: 50%;
+    top: 8vh;
+    transform: translateX(-50%);
+    justify-content: center;
+  }
+
+  #box2 {
+    left: 50%;
+    top: 20vh;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+  }
+
+  #concrats {
+    left: 50%;
+    top: 45vh;
+    transform: translate(-50%, -50%) rotate(-40deg);
+    width: 80%;
+    text-align: center;
+    animation-name: concrats, rotate-tablet;
+  }
+
+  #reset {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+  }
+
+  #coin1, #coin2, #coin3 {
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    margin: 0;
+  }
+
+  #coin1 { animation-name: coin1-tablet-p; }
+  #coin2 { animation-name: coin2-tablet-p; }
+  #coin3 { animation-name: coin3-tablet-p; }
+}
+
+@keyframes rotate-tablet {
+  50% {
+    transform: translate(-50%, -50%) rotate(40deg);
+  }
+}
+
+@keyframes coin1-tablet-p {
+  0%   { transform: translate(-30vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  25%  { transform: translate(25vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  50%  { transform: translate(-20vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  75%  { transform: translate(30vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-30vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin2-tablet-p {
+  0%   { transform: translate(30vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  25%  { transform: translate(-25vw, 10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  50%  { transform: translate(20vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  75%  { transform: translate(-30vw, -15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(30vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin3-tablet-p {
+  0%   { transform: translate(-20vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  25%  { transform: translate(30vw, -35vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  50%  { transform: translate(-35vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  75%  { transform: translate(15vw, 10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-20vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+/* ------------------------------------------------------- */
+/* 2. TABLET LIGGEND (Landscape)                           */
+/* ------------------------------------------------------- */
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+  div {
+    left: 50%;
+    top: 5vh;
+    transform: translateX(-50%);
+    justify-content: center;
+  }
+
+  #box2 {
+    left: 50%;
+    top: 20vh;
+    transform: translateX(-50%);
+    width: 70%;
+    text-align: center;
+  }
+
+  #concrats {
+    left: 50%;
+    top: 40vh;
+    transform: translate(-50%, -50%) rotate(-40deg);
+    width: 70%;
+    text-align: center;
+    animation-name: concrats, rotate-tablet;
+  }
+
+  #reset {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+  }
+
+  #coin1, #coin2, #coin3 {
+    position: absolute;
+    left: 50%;
+    top: 55vh;
+    margin: 0;
+  }
+
+  #coin1 { animation-name: coin1-tablet-l; }
+  #coin2 { animation-name: coin2-tablet-l; }
+  #coin3 { animation-name: coin3-tablet-l; }
+}
+
+@keyframes coin1-tablet-l {
+  0%   { transform: translate(-35vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  33%  { transform: translate(35vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  66%  { transform: translate(-20vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-35vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin2-tablet-l {
+  0%   { transform: translate(30vw, 20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  33%  { transform: translate(-35vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  66%  { transform: translate(20vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(30vw, 20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin3-tablet-l {
+  0%   { transform: translate(-15vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  33%  { transform: translate(30vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  66%  { transform: translate(-30vw, 20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-15vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+/* ------------------------------------------------------- */
+/* 3. TELEFOON STAAND (Portrait)                           */
+/* ------------------------------------------------------- */
+@media screen and (max-width: 600px) and (orientation: portrait) {
+  div {
+    left: 50%;
+    top: 5vh;
+    transform: translateX(-50%);
+    font-size: 30px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #box2 {
+    left: 50%;
+    top: 16vh;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 20px;
+    height: auto;
+    text-align: center;
+  }
+
+  #concrats {
+    left: 50%;
+    top: 45vh;
+    transform: translate(-50%, -50%) rotate(-40deg);
+    width: 90%;
+    font-size: 1.6em;
+    text-align: center;
+    animation-name: concrats, rotate-mobile;
+  }
+
+  #reset {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    top: auto;
+    left: auto;
+    width: 100px;
+    height: 50px;
+    font-size: 12px;
+  }
+
+  #coin1, #coin2, #coin3 {
+    position: absolute;
+    left: 50%;
+    top: 55vh;
+    margin: 0;
+  }
+
+  #coin1 { animation-name: coin1-mobile-p; }
+  #coin2 { animation-name: coin2-mobile-p; }
+  #coin3 { animation-name: coin3-mobile-p; }
+}
+
+@keyframes rotate-mobile {
+  50% {
+    transform: translate(-50%, -50%) rotate(40deg);
+  }
+}
+
+@keyframes coin1-mobile-p {
+  0%   { transform: translate(-35vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  25%  { transform: translate(30vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  50%  { transform: translate(-25vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  75%  { transform: translate(35vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-35vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin2-mobile-p {
+  0%   { transform: translate(35vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  25%  { transform: translate(-30vw, 10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  50%  { transform: translate(25vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  75%  { transform: translate(-35vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(35vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin3-mobile-p {
+  0%   { transform: translate(-20vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  25%  { transform: translate(35vw, -30vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  50%  { transform: translate(-35vw, -15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  75%  { transform: translate(20vw, 10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-20vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+/* ------------------------------------------------------- */
+/* 4. TELEFOON LIGGEND (Landscape)                         */
+/* ------------------------------------------------------- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  div {
+    left: 50%;
+    top: 2vh;
+    transform: translateX(-50%);
+    font-size: 24px;
+    justify-content: center;
+  }
+
+  #box2 {
+    left: 50%;
+    top: 15vh;
+    transform: translateX(-50%);
+    width: 80%;
+    font-size: 16px;
+    height: auto;
+    text-align: center;
+  }
+
+  #concrats {
+    left: 50%;
+    top: 40vh;
+    transform: translate(-50%, -50%) rotate(-40deg);
+    width: 80%;
+    font-size: 1.3em;
+    text-align: center;
+    animation-name: concrats, rotate-mobile;
+  }
+
+  #reset {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    top: auto;
+    left: auto;
+    width: 90px;
+    height: 40px;
+    font-size: 11px;
+  }
+
+  #coin1, #coin2, #coin3 {
+    position: absolute;
+    left: 50%;
+    top: 50vh;
+    margin: 0;
+  }
+
+  #coin1 { animation-name: coin1-mobile-l; }
+  #coin2 { animation-name: coin2-mobile-l; }
+  #coin3 { animation-name: coin3-mobile-l; }
+}
+
+@keyframes coin1-mobile-l {
+  0%   { transform: translate(-40vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  33%  { transform: translate(40vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  66%  { transform: translate(-20vw, -15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-40vw, -20vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin2-mobile-l {
+  0%   { transform: translate(35vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  33%  { transform: translate(-40vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  66%  { transform: translate(25vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(35vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
+
+@keyframes coin3-mobile-l {
+  0%   { transform: translate(-20vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  33%  { transform: translate(35vw, -10vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  66%  { transform: translate(-35vw, 15vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+  100% { transform: translate(-20vw, -25vh) rotate(1080deg); opacity: 1; pointer-events: fill; cursor: pointer; }
+}
