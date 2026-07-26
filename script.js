@@ -1,4 +1,4 @@
-let something = 998;
+let something = 0;
 
 // MUNT 1 (+1 punt)
 document.getElementById("coin1").onclick = function () {
@@ -7,7 +7,7 @@ document.getElementById("coin1").onclick = function () {
 
   // Bericht berekenen en updaten
 if (something > 999)  {
-     document.getElementById("concrats").textContent ="";
+     document.getElementById("concrats").textContent =" ";
 }
  else if (something >= 100000) {
     document.getElementById("concrats").textContent =
