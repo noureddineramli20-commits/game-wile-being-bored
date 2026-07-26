@@ -8,7 +8,7 @@ document.getElementById("coin1").onclick = function () {
   // Bericht berekenen en updaten
 if (something < 999)  {
      document.getElementById("concrats").textContent ="";
-  
+}
  else if (something >= 100000) {
     document.getElementById("concrats").textContent =
       "concrats you got the finel point 100.000 point thank you for playing";
