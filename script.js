@@ -14,6 +14,7 @@ document.getElementById("coin2").onclick = function () {
 
 document.getElementById("coin3").onclick = function () {
   something += 100;
+  document.getElementById("score").textContent = something;
 };
 
 console.log(something);
