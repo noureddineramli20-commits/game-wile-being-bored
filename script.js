@@ -1,4 +1,4 @@
-let something = 0;
+let something = 999;
 
 // MUNT 1 (+1 punt)
 document.getElementById("coin1").onclick = function () {
