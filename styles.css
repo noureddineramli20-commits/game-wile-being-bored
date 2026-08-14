@@ -2,35 +2,43 @@
 /* ======================================================= */
 /* 1. JOUW ORIGINELE BASIS CODE (Voor PC)                  */
 /* ======================================================= */
+html,
 body {
+  width: 1280px; /* Forceer een vaste landscape breedte */
+  min-height: 720px; /* Forceer een minimale landscape hoogte */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body {
+  background-image: url(images.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
   margin: 0;
   user-select: none;
   animation-name: body;
   animation-duration: 20s;
   animation-delay: 6s;
   animation-iteration-count: infinite;
-  background-color: hsl(180, 100%, 20%);
   color: white;
 }
 @keyframes body {
   0% {
-    background-color: hsl(0, 100%, 30%);
     color: hsl(240, 100%, 30%);
   }
   25% {
-    background-color: hsl(102, 80%, 20%);
     color: hsl(292, 22%, 27%);
   }
   50% {
-    background-color: hsl(60, 100%, 30%);
     color: hsl(0, 100%, 30%);
   }
   75% {
-    background-color: purple;
     color: hsl(60, 100%, 30%);
   }
   100% {
-    background-color: hsl(0, 100%, 30%);
     color: hsl(240, 100%, 30%);
   }
 }
@@ -200,7 +208,7 @@ button {
 /* JOUW ORIGINELE PC KEYFRAMES */
 @keyframes coin1 {
   0% {
-    transform: translateY(-60vh) translate(400px) rotate(1080deg);
+    transform: translate(-350px) translateY(-60px) rotate(1080deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
@@ -238,7 +246,7 @@ button {
 }
 @keyframes coin2 {
   0% {
-    transform: translate(-500px) translateY(-40vh);
+    transform: translateY(-50px) translate(80px) rotate(1080deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
@@ -276,7 +284,7 @@ button {
 }
 @keyframes coin3 {
   0% {
-    transform: translate(-80px) translateY(-50vh) rotate(1080deg);
+    transform: translateY(0px) translate(-430px) rotate(1080deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
@@ -363,74 +371,11 @@ button {
 /* 3. MEDIA QUERIES VOOR TABLET EN TELEFOON                */
 /* ======================================================= */
 
-/* --- A. TABLET STAAND (Portrait) --- */
-@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
-  div {
-    left: 50%;
-    top: 8vh;
-    transform: translateX(-50%);
-    justify-content: center;
-    width: 100%;
-  }
-  #box2 {
-    left: 50%;
-    top: 20vh;
-    transform: translateX(-50%);
-    width: 80%;
-    text-align: center;
-  }
-  #concrats {
-    left: 50%;
-    top: 45vh;
-    transform: translate(-50%, -50%) rotate(-40deg);
-    width: 80%;
-    text-align: center;
-    animation-name: concrats, rotate-center;
-  }
-  #reset {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    top: auto;
-    left: auto;
-  }
-
-  /* Iets kleinere munten en font-size voor Tablet */
-  #coin1,
-  #coin2,
-  #coin3 {
-    position: absolute;
-    left: 50%;
-    margin: 0;
-  }
-  #coin1 {
-    top: 55vh;
-    width: 45px;
-    height: 45px;
-    font-size: 10px;
-    animation-name: coin1-stack;
-  }
-  #coin2 {
-    top: 68vh;
-    width: 60px;
-    height: 60px;
-    font-size: 12px;
-    animation-name: coin2-stack;
-  }
-  #coin3 {
-    top: 81vh;
-    width: 75px;
-    height: 75px;
-    font-size: 14px;
-    animation-name: coin3-stack;
-  }
-}
-
 /* --- B. TABLET LIGGEND (Landscape) --- */
 @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
   div {
     left: 50%;
-    top: 5vh;
+    top: 10vh;
     transform: translateX(-50%);
     justify-content: center;
     width: 100%;
@@ -442,14 +387,7 @@ button {
     width: 70%;
     text-align: center;
   }
-  #concrats {
-    left: 50%;
-    top: 40vh;
-    transform: translate(-50%, -50%) rotate(-40deg);
-    width: 70%;
-    text-align: center;
-    animation-name: concrats, rotate-center;
-  }
+
   #reset {
     position: fixed;
     bottom: 20px;
