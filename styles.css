@@ -367,19 +367,19 @@ button {
 @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
   div {
     left: 50%;
-    top: 20vh;
-    margin-top: 20%;
-    font-size: 3em;
+    top: 2vh;
+    margin-top: 25%;
+    font-size: 4em;
     position: relative;
   }
   #box2 {
     left: 50%;
     top: 30vh;
     text-align: center;
-    font-size: 3em;
+    font-size: 4em;
     width: 500px;
     position: relative;
-    top: 20vh;
+    top: 5vh;
   }
   #reset {
     position: fixed;
@@ -411,11 +411,11 @@ button {
     top: 90vh;
     width: 90px;
     height: 90px;
-    font-size: 2em;
+    font-size: 1.5em;
     animation-name: coin2-stack;
   }
   #coin3 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0;
     position: absolute;
     left: 90%;
