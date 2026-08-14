@@ -369,14 +369,15 @@ button {
     left: 50%;
     top: 20vh;
     margin-top: 20%;
-    font-size: 3em;
+    font-size: 5em;
     position: relative;
   }
   #box2 {
     left: 50%;
     top: 30vh;
     text-align: center;
-    font-size: 3em;
+    font-size: 5em;
+    width: 500px;
     position: relative;
   }
   #reset {
@@ -384,7 +385,6 @@ button {
     bottom: 70px;
     right: 70px;
     font-size: 3em;
-    height: auto;
     top: auto;
     left: auto;
   }
@@ -396,8 +396,8 @@ button {
     position: absolute;
     left: 50%;
     top: 83vh;
-    width: 70px;
-    height: 70px;
+    width: 80%;
+    height: 80px;
     font-size: 2em;
     animation-name: coin1-stack;
   }
