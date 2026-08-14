@@ -1,3 +1,6 @@
+/* ======================================================= */
+/* 1. JOUW ORIGINELE BASIS CODE (Voor PC)                  */
+/* ======================================================= */
 body {
   background-image: url(images.jpeg);
   background-attachment: fixed;
@@ -11,7 +14,7 @@ body {
   animation-duration: 20s;
   animation-delay: 6s;
   animation-iteration-count: infinite;
-  color: white;
+  color: black;
   overflow: hidden;
 }
 @keyframes body {
@@ -54,24 +57,6 @@ h2 {
   50% {
     opacity: 0;
   }
-}
-
-#concrats {
-  font-size: 3em;
-  position: absolute;
-  left: 40vh;
-  top: 40vh;
-  transform: rotate(-40deg);
-  z-index: 2;
-  color: rgb(0, 0, 0);
-  width: 900px;
-  opacity: 0;
-  animation-name: concrats, rotate;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  font-weight: bold;
-  text-transform: capitalize;
 }
 
 @keyframes rotate {
@@ -129,6 +114,7 @@ button {
   font-weight: bold;
   margin: 30px;
   user-select: none;
+  outline: none;
 }
 
 #reset {
@@ -488,39 +474,31 @@ button {
 @media screen and (max-width: 600px) and (orientation: portrait) {
   div {
     left: 50%;
-    top: 5vh;
+    top: 21vh;
     transform: translateX(-50%);
     font-size: 30px;
     justify-content: center;
     width: 100%;
+    font-size: 1.5em;
   }
   #box2 {
     left: 50%;
-    top: 16vh;
+    top: 27vh;
     transform: translateX(-50%);
     width: 90%;
     font-size: 20px;
     height: auto;
     text-align: center;
   }
-  #concrats {
-    left: 50%;
-    top: 45vh;
-    transform: translate(-50%, -50%) rotate(-40deg);
-    width: 90%;
-    font-size: 1.6em;
-    text-align: center;
-    animation-name: concrats, rotate-center;
-  }
   #reset {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
     top: auto;
     left: auto;
-    width: 90px;
-    height: 50px;
-    font-size: 12px;
+    width: 60px;
+    height: 30px;
+    font-size: 10px;
   }
 
   /* Kleinere munten en lettertype voor telefoon */
@@ -532,23 +510,26 @@ button {
     margin: 0;
   }
   #coin1 {
-    top: 55vh;
-    width: 35px;
-    height: 35px;
+    top: 67vh;
+    left: 40px;
+    width: 30px;
+    height: 30px;
     font-size: 8px;
     animation-name: coin1-stack;
   }
   #coin2 {
-    top: 68vh;
-    width: 50px;
-    height: 50px;
+    top: 67vh;
+    left: 100px;
+    width: 40px;
+    height: 40px;
     font-size: 10px;
     animation-name: coin2-stack;
   }
   #coin3 {
-    top: 81vh;
-    width: 65px;
-    height: 65px;
+    top: 66vh;
+    left: 180px;
+    width: 50px;
+    height: 50px;
     font-size: 12px;
     animation-name: coin3-stack;
   }
@@ -573,15 +554,7 @@ button {
     height: auto;
     text-align: center;
   }
-  #concrats {
-    left: 50%;
-    top: 40vh;
-    transform: translate(-50%, -50%) rotate(-40deg);
-    width: 80%;
-    font-size: 1.3em;
-    text-align: center;
-    animation-name: concrats, rotate-center;
-  }
+
   #reset {
     position: fixed;
     bottom: 10px;
@@ -639,47 +612,62 @@ button {
    De vh is vergroot (b.v. naar -40vh en 35vh) zodat ze extreem bewegen! */
 @keyframes coin1-stack {
   0% {
-    transform: translate(-50%, 0) rotate(0deg);
+    transform: translate(-30px, -65vh) rotate(0deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
     z-index: 1;
   }
-  25% {
-    transform: translate(-35vw, -45vh) rotate(360deg);
+  20% {
+    transform: translate(35vw, 20vh) rotate(360deg);
     z-index: 10;
   }
-  50% {
-    transform: translate(35vw, 30vh) rotate(720deg);
+  40% {
+    transform: translate(45vw, -65vh) rotate(720deg);
     z-index: 10;
   }
-  75% {
-    transform: translate(-25vw, -35vh) rotate(1080deg);
+  60% {
+    transform: translate(-12vw, 25vh) rotate(1080deg);
     z-index: 10;
+  }
+  80% {
+    transform: translate(180px, -35vh) rotate(1440deg);
+    opacity: 1;
+    pointer-events: fill;
+    cursor: pointer;
+    z-index: 1;
   }
   100% {
-    transform: translate(-50%, 0) rotate(1440deg);
+    transform: translate(-30px, -65vh) rotate(1440deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
     z-index: 1;
   }
 }
+/* coin 2 is voor morgen */
 @keyframes coin2-stack {
   0% {
-    transform: translate(-50%, 0) rotate(0deg);
+    transform: translate(-30px, -65vh) rotate(0deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
     z-index: 1;
   }
-  33% {
+  25% {
     transform: translate(35vw, -50vh) rotate(-360deg);
     z-index: 10;
   }
-  66% {
+  50% {
     transform: translate(-35vw, 35vh) rotate(-720deg);
     z-index: 10;
+  }
+  75% {
+    transform: translate(-50%, 0) rotate(-1080deg);
+    opacity: 1;
+    pointer-events: fill;
+    cursor: pointer;
+    z-index: 1;
   }
   100% {
     transform: translate(-50%, 0) rotate(-1080deg);
