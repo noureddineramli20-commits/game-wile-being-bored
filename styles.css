@@ -547,7 +547,7 @@ button {
   }
   #box2 {
     left: 50%;
-    top: 15vh;
+    top: 12vh;
     transform: translateX(-50%);
     width: 80%;
     font-size: 16px;
@@ -575,7 +575,7 @@ button {
     margin: 0;
   }
   #coin1 {
-    top: 40vh;
+    top: 30vh;
     width: 30px;
     height: 30px;
     font-size: 7px;
@@ -583,15 +583,15 @@ button {
   }
   #coin2 {
     top: 60vh;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     font-size: 9px;
     animation-name: coin2-stack;
   }
   #coin3 {
     top: 80vh;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 11px;
     animation-name: coin3-stack;
   }
