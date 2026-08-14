@@ -369,24 +369,22 @@ button {
     left: 50%;
     top: 20vh;
     margin-top: 20%;
-    width: 3em;
-    height: 3em;
+    font-size: 3em;
     position: relative;
   }
   #box2 {
     left: 50%;
     top: 30vh;
     text-align: center;
-    width: 3em;
-    height: 3em;
+    font-size: 3em;
     position: relative;
   }
   #reset {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 3em;
-    height: 3em;
+    font-size: 3em;
+    height: auto;
     top: auto;
     left: auto;
   }
@@ -400,6 +398,7 @@ button {
     top: 83vh;
     width: 45px;
     height: 45px;
+    font-size: 2em;
     animation-name: coin1-stack;
   }
   #coin2 {
@@ -409,9 +408,11 @@ button {
     top: 82vh;
     width: 65px;
     height: 65px;
+    font-size: 2em;
     animation-name: coin2-stack;
   }
   #coin3 {
+    font-size: 2em;
     margin: 0;
     position: absolute;
     left: 90%;
