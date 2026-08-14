@@ -367,14 +367,19 @@ button {
 @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
   div {
     left: 50%;
-    top: 20vh;
-    margin-top: 20%;
+    top: 10vh;
+    transform: translateX(-50%);
+    justify-content: center;
+    width: 100%;
   }
   #box2 {
     left: 50%;
-    top: 30vh;
+    top: 20vh;
+    transform: translateX(-50%);
+    width: 70%;
     text-align: center;
   }
+
   #reset {
     position: fixed;
     bottom: 20px;
@@ -382,7 +387,6 @@ button {
     top: auto;
     left: auto;
   }
-
   /* Iets kleinere munten en font-size voor Tablet */
 
   #coin1 {
@@ -390,8 +394,8 @@ button {
     position: absolute;
     left: 30%;
     top: 81vh;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     animation-name: coin1-stack;
   }
   #coin2 {
@@ -399,8 +403,8 @@ button {
     margin: 0;
     left: 50%;
     top: 81vh;
-    width: 40px;
-    height: 40px;
+    width: 65px;
+    height: 65px;
     animation-name: coin2-stack;
   }
   #coin3 {
@@ -408,8 +412,8 @@ button {
     position: absolute;
     left: 70%;
     top: 81vh;
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     animation-name: coin3-stack;
   }
 }
