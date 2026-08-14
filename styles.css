@@ -1,15 +1,6 @@
-
 /* ======================================================= */
 /* 1. JOUW ORIGINELE BASIS CODE (Voor PC)                  */
 /* ======================================================= */
-html,
-body {
-  width: 1280px; /* Forceer een vaste landscape breedte */
-  min-height: 720px; /* Forceer een minimale landscape hoogte */
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
 body {
   background-image: url(images.jpeg);
   background-attachment: fixed;
@@ -23,6 +14,7 @@ body {
   animation-duration: 20s;
   animation-delay: 6s;
   animation-iteration-count: infinite;
+
   color: white;
 }
 @keyframes body {
@@ -370,6 +362,57 @@ button {
 /* ======================================================= */
 /* 3. MEDIA QUERIES VOOR TABLET EN TELEFOON                */
 /* ======================================================= */
+
+/* --- A. TABLET STAAND (Portrait) --- */
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  div {
+    left: 50%;
+    top: 20vh;
+    margin-top: 20%;
+  }
+  #box2 {
+    left: 50%;
+    top: 30vh;
+    text-align: center;
+  }
+  #reset {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+  }
+
+  /* Iets kleinere munten en font-size voor Tablet */
+
+  #coin1 {
+    margin: 0;
+    position: absolute;
+    left: 30%;
+    top: 81vh;
+    width: 30px;
+    height: 30px;
+    animation-name: coin1-stack;
+  }
+  #coin2 {
+    position: absolute;
+    margin: 0;
+    left: 50%;
+    top: 81vh;
+    width: 40px;
+    height: 40px;
+    animation-name: coin2-stack;
+  }
+  #coin3 {
+    margin: 0;
+    position: absolute;
+    left: 70%;
+    top: 81vh;
+    width: 50px;
+    height: 50px;
+    animation-name: coin3-stack;
+  }
+}
 
 /* --- B. TABLET LIGGEND (Landscape) --- */
 @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
