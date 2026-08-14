@@ -379,6 +379,7 @@ button {
     font-size: 5em;
     width: 500px;
     position: relative;
+    top: 10vh;
   }
   #reset {
     position: fixed;
@@ -400,7 +401,7 @@ button {
     top: 83vh;
     width: 80px;
     height: 80px;
-    font-size: 2em;
+    font-size: 1.5em;
     animation-name: coin1-stack;
   }
   #coin2 {
@@ -424,7 +425,6 @@ button {
     animation-name: coin3-stack;
   }
 }
-
 /* --- B. TABLET LIGGEND (Landscape) --- */
 @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
   div {
