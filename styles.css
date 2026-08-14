@@ -14,8 +14,8 @@ body {
   animation-duration: 20s;
   animation-delay: 6s;
   animation-iteration-count: infinite;
-
   color: white;
+  overflow: hidden;
 }
 @keyframes body {
   0% {
@@ -382,8 +382,10 @@ button {
   }
   #reset {
     position: fixed;
-    bottom: 70px;
-    right: 70px;
+    bottom: 90px;
+    right: 90px;
+    width: 250px;
+    height: auto;
     font-size: 3em;
     top: auto;
     left: auto;
@@ -396,7 +398,7 @@ button {
     position: absolute;
     left: 50%;
     top: 83vh;
-    width: 80%;
+    width: 80px;
     height: 80px;
     font-size: 2em;
     animation-name: coin1-stack;
@@ -422,6 +424,7 @@ button {
     animation-name: coin3-stack;
   }
 }
+
 /* --- B. TABLET LIGGEND (Landscape) --- */
 @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
   div {
