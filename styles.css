@@ -108,7 +108,7 @@ button {
   outline: 2px solid rgb(30, 0, 255);
   position: absolute;
   top: 80vh;
-  left: 190vh;
+  left: 170vh;
   z-index: 10;
 }
 #reset:hover {
