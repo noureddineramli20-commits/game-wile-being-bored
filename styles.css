@@ -4,7 +4,7 @@
 body {
   background-image: url(images.jpeg);
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;$
   background-position-x: center;
   background-position-y: center;
   background-size: cover;
@@ -59,26 +59,6 @@ h2 {
   }
 }
 
-@keyframes rotate {
-  50% {
-    transform: rotate(40deg);
-  }
-}
-
-@keyframes concrats {
-  25% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 div {
   display: flex;
   position: absolute;
@@ -129,6 +109,7 @@ button {
   position: absolute;
   top: 80vh;
   left: 190vh;
+  z-index: 10;
 }
 #reset:hover {
   transform: scale(1.1);
@@ -183,19 +164,19 @@ button {
 /* JOUW ORIGINELE PC KEYFRAMES */
 @keyframes coin1 {
   0% {
-    transform: translate(-350px) translateY(-60px) rotate(1080deg);
+    transform: translate(-350px) translateY(-60px) rotate(0deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
   }
   20% {
-    transform: translateY(-20vh) translate(600px) rotate(1080deg);
+    transform: translateY(-20vh) translate(600px) rotate(360deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
   }
-  40% {
-    transform: translateY(-40vh) translate(-450px) rotate(1080deg);
+  40% { 
+    transform: translateY(-40vh) translate(-400px) rotate(720deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
@@ -207,13 +188,13 @@ button {
     cursor: pointer;
   }
   80% {
-    transform: translateY(-80vh) translate(450px) rotate(1080deg);
+    transform: translateY(-80vh) translate(450px) rotate(1440deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
   }
   100% {
-    transform: translate(-350px) translateY(-60px) rotate(1080deg);
+    transform: translate(-350px) translateY(-60px) rotate(1780deg);
     pointer-events: fill;
     opacity: 1;
     cursor: pointer;
@@ -474,19 +455,18 @@ button {
 @media screen and (max-width: 600px) and (orientation: portrait) {
   div {
     left: 50%;
-    top: 21vh;
+    top: 12vh;
     transform: translateX(-50%);
     font-size: 30px;
     justify-content: center;
     width: 100%;
-    font-size: 1.5em;
   }
   #box2 {
     left: 50%;
-    top: 27vh;
+    top: 20vh;
     transform: translateX(-50%);
     width: 90%;
-    font-size: 20px;
+    font-size: 25px;
     height: auto;
     text-align: center;
   }
@@ -496,8 +476,8 @@ button {
     right: 5px;
     top: auto;
     left: auto;
-    width: 60px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     font-size: 10px;
   }
 
@@ -511,7 +491,7 @@ button {
   }
   #coin1 {
     top: 67vh;
-    left: 40px;
+    left: 70px;
     width: 30px;
     height: 30px;
     font-size: 8px;
@@ -519,7 +499,7 @@ button {
   }
   #coin2 {
     top: 67vh;
-    left: 100px;
+    left: 130px;
     width: 40px;
     height: 40px;
     font-size: 10px;
@@ -527,7 +507,7 @@ button {
   }
   #coin3 {
     top: 66vh;
-    left: 180px;
+    left: 200px;
     width: 50px;
     height: 50px;
     font-size: 12px;
@@ -539,18 +519,18 @@ button {
 @media screen and (max-height: 500px) and (max-width: 900px) and (orientation: landscape) {
   div {
     left: 50%;
-    top: 2vh;
+    top: 20vh;
     transform: translateX(-50%);
-    font-size: 24px;
+    font-size: 28px;
     justify-content: center;
     width: 100%;
   }
   #box2 {
     left: 50%;
-    top: 12vh;
+    top: 32vh;
     transform: translateX(-50%);
     width: 80%;
-    font-size: 16px;
+    font-size: 20px;
     height: auto;
     text-align: center;
   }
@@ -573,27 +553,29 @@ button {
     position: absolute;
     left: 50%;
     margin: 0;
+    top: 70vh;
+    
   }
   #coin1 {
-    top: 30vh;
     width: 30px;
     height: 30px;
     font-size: 7px;
-    animation-name: coin1-stack;
+    animation-name: coin1-side;
+    animation-duration: 6s;
   }
   #coin2 {
-    top: 60vh;
     width: 40px;
     height: 40px;
     font-size: 9px;
-    animation-name: coin2-stack;
+    animation-name: coin2-side;
+    animation-duration: 4s;
   }
   #coin3 {
-    top: 80vh;
     width: 50px;
     height: 50px;
     font-size: 11px;
-    animation-name: coin3-stack;
+    animation-name: coin3-side;
+    animation-duration: 2s;
   }
 }
 
@@ -620,15 +602,15 @@ button {
   }
   20% {
     transform: translate(35vw, 20vh) rotate(360deg);
-    z-index: 10;
+    z-index: 1;
   }
   40% {
     transform: translate(45vw, -65vh) rotate(720deg);
-    z-index: 10;
+    z-index: 1;
   }
   60% {
     transform: translate(-12vw, 25vh) rotate(1080deg);
-    z-index: 10;
+    z-index: 1;
   }
   80% {
     transform: translate(180px, -35vh) rotate(1440deg);
@@ -645,7 +627,7 @@ button {
     z-index: 1;
   }
 }
-/* coin 2 is voor morgen */
+/* nu moeten we coin 2 */
 @keyframes coin2-stack {
   0% {
     transform: translate(-30px, -65vh) rotate(0deg);
@@ -654,23 +636,30 @@ button {
     cursor: pointer;
     z-index: 1;
   }
-  25% {
-    transform: translate(35vw, -50vh) rotate(-360deg);
-    z-index: 10;
+  20% {
+    transform: translate(45vw, 20vh) rotate(-360deg);
+    z-index: 1;
   }
-  50% {
-    transform: translate(-35vw, 35vh) rotate(-720deg);
-    z-index: 10;
+  40% {
+    transform: translate(-40vw, -20vh) rotate(-720deg);
+    z-index: 1;
   }
-  75% {
-    transform: translate(-50%, 0) rotate(-1080deg);
+  60% {
+    transform: translate(120px, -60vh) rotate(-1080deg);
+    opacity: 1;
+    pointer-events: fill;
+    cursor: pointer;
+    z-index: 1;
+  }
+  80% {
+    transform: translate(10px, -20vh) rotate(-1080deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
     z-index: 1;
   }
   100% {
-    transform: translate(-50%, 0) rotate(-1080deg);
+    transform: translate(-30px, -65vh) rotate(-1080deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
@@ -679,22 +668,36 @@ button {
 }
 @keyframes coin3-stack {
   0% {
-    transform: translate(-50%, 0) rotate(0deg);
+    transform: translate(-190px, 15vh) rotate(0deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
     z-index: 1;
   }
-  33% {
+  20% {
     transform: translate(-30vw, -55vh) rotate(720deg);
-    z-index: 10;
+    z-index: 1;
   }
-  66% {
-    transform: translate(30vw, 35vh) rotate(1440deg);
-    z-index: 10;
+  40% {
+    transform: translate(23vw, 0vh) rotate(1440deg);
+    z-index: 1;
+  }
+  60% {
+    transform: translate(-30px, -60vh) rotate(2160deg);
+    opacity: 1;
+    pointer-events: fill;
+    cursor: pointer;
+    z-index: 1;
+  }
+  80% {
+    transform: translate(50px, -40vh) rotate(2160deg);
+    opacity: 1;
+    pointer-events: fill;
+    cursor: pointer;
+    z-index: 1;
   }
   100% {
-    transform: translate(-50%, 0) rotate(2160deg);
+    transform: translate(-190px, 15vh) rotate(2160deg);
     opacity: 1;
     pointer-events: fill;
     cursor: pointer;
