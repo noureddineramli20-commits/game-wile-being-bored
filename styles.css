@@ -59,7 +59,7 @@ h2 {
   }
 }
 
-div {
+#box1 {
   display: flex;
   position: absolute;
   left: 70vh;
